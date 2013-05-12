@@ -1,0 +1,14 @@
+/* Combo Button */
+
+.#{$theme} .dijitComboButtonRtl .dijitStretch {
+	@include border-radius(0 $button-border-radius $button-border-radius 0);
+}
+
+.#{$theme} .dijitComboButtonRtl .dijitArrowButton {
+	@include border-radius($button-border-radius 0 0  $button-border-radius);
+	padding:3px 0 4px;
+	border-left-width: 1px;
+	border-right-width: 0;
+}
+
+/* End Combo Button */

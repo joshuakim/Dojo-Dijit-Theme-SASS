@@ -1,0 +1,35 @@
+// This is the complete list of all CSS widgets to build a Dijit Theme
+// For RTL support - use _theme_rtl.scss instead
+
+@import "../dijit.css";
+@import "../../icons/commonIcons.css"; // sprite containing common icons to be used by all themes
+
+@import "Common";
+
+@import "layout/ContentPane";
+@import "layout/TabContainer";
+@import "layout/AccordionContainer";
+@import "layout/BorderContainer";
+
+@import "form/Common";
+@import "form/Button"; // Button.css contains classes for combobox
+@import "form/Checkbox";
+@import "form/RadioButton";
+@import "form/Slider";
+@import "form/Select";
+@import "form/NumberSpinner";
+
+@import "Tree"; 
+@import "ProgressBar";
+@import "TitlePane";
+@import "Calendar";
+@import "TimePicker";
+@import "Toolbar"; // Toolbar.css contains classes also used in Editor
+@import "Dialog"; // Dialog.css contains css classes for both Dialog and Tooltip!
+@import "Menu";
+
+@import "Editor"; // in order to test button or menu item with icon
+@import "../../icons/editorIcons.css"; // sprite for editor icons to be used by all themes
+
+@import "ColorPalette";
+@import "InlineEditBox";

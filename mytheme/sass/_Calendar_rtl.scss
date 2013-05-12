@@ -1,0 +1,19 @@
+.#{$theme} .dijitCalendarRtl .dijitCalendarIncrease{
+	background-position: 0 0;
+}
+.#{$theme} .dijitCalendarRtl .dijitCalendarDecrease {
+	background-position: -18px 0;
+}
+.#{$theme} .dijitCalendarRtl .dijitCalendarArrowHover .dijitCalendarIncrease {
+	background-position: -36px 0;
+}
+.#{$theme} .dijitCalendarRtl .dijitCalendarArrowHover .dijitCalendarDecrease {
+	background-position: -55px 0;
+}
+.#{$theme} .dijitCalendarRtl .dijitCalendarArrowActive .dijitCalendarIncrease {
+	background-position: -72px 0;
+}
+.#{$theme} .dijitCalendarRtl .dijitCalendarArrowActive .dijitCalendarDecrease {
+	background-position: -91px 0;
+}
+

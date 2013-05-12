@@ -1,0 +1,186 @@
+@import url(../dijit_rtl.css);
+@import url(../../icons/commonIcons_rtl.css);
+@import url(../../icons/editorIcons_rtl.css);
+/*==========================================================================
+ * IMPORTANT!
+ *   This is a SASS generated CSS file. Make edits to the original .scss file
+ * 
+ * SASS: mytheme_rtl.scss
+ * CSS:  mytheme_rtl.css
+ * 
+ * Copyright 2013 JNK Design & Development
+ * Released under the MIT license.
+ *
+ * Original Dojo Dijit CSS License:
+ * http://dojotoolkit.org/license
+ * ========================================================================== */
+/* sass/form/Common_rtl.css */
+.mytheme .dijitTextBoxRtlError .dijitValidationContainer {
+  border-left-width: 0 !important;
+  border-right-width: 1px !important;
+}
+
+/* Combo Button */
+.mytheme .dijitComboButtonRtl .dijitStretch {
+  -moz-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.mytheme .dijitComboButtonRtl .dijitArrowButton {
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+  padding: 3px 0 4px;
+  border-left-width: 1px;
+  border-right-width: 0;
+}
+
+/* End Combo Button */
+.mytheme .dijitTabContainerTop-tabs .dijitTabRtl,
+.mytheme .dijitTabContainerBottom-tabs .dijitTabRtl {
+  margin-right: 0;
+  margin-left: 1px;
+}
+
+.mytheme .dijitSliderRtl .dijitSliderProgressBarH,
+.mytheme .dijitSliderRtl .dijitSliderRemainingBarH,
+.mytheme .dijitSliderRtl .dijitSliderLeftBumper,
+.mytheme .dijitSliderRtl .dijitSliderRightBumper,
+.mytheme .dijitSliderRtl .dijitSliderTopBumper {
+  background-position: top right;
+}
+
+.mytheme .dijitSliderRtl .dijitSliderProgressBarV,
+.mytheme .dijitSliderRtl .dijitSliderRemainingBarV,
+.mytheme .dijitSliderRtl .dijitSliderBottomBumper {
+  background-position: bottom right;
+}
+
+.mytheme .dijitSliderRtl .dijitSliderLeftBumper {
+  border-left-width: 0;
+  border-right-width: 1px;
+}
+
+.mytheme .dijitSliderRtl .dijitSliderRightBumper {
+  border-left-width: 1px;
+  border-right-width: 0;
+}
+
+.mytheme .dijitSliderRtl .dijitSliderIncrementIconH {
+  background-position: -357px 50%;
+}
+
+.mytheme .dijitSliderRtl .dijitSliderDecrementIconH {
+  background-position: -251px 50%;
+}
+
+/* Dialog */
+.mytheme .dijitDialogRtl .dijitDialogCloseIcon {
+  right: auto;
+  left: 5px;
+}
+
+.mytheme .dijitDialogRtl .dijitDialogPaneActionBar {
+  text-align: left;
+  padding: 3px 7px 2px 5px;
+}
+
+/* Editor */
+.mytheme .dijitEditorRtl .dijitEditorIFrameContainer {
+  padding: 3px 10px 1px 3px;
+}
+
+/* TitlePane */
+.mytheme .dijitTitlePaneRtl .dijitClosed .dijitArrowNode {
+  background-position: -7px 0;
+}
+
+.mytheme .dijitMenuItemRtl .dijitMenuExpand {
+  background-position: -7px 0;
+  margin-right: 0;
+  margin-left: 3px;
+}
+
+.mytheme .dijitMenuItemRtl .dijitMenuItemIcon {
+  margin: 0 4px 0 0;
+}
+
+.mytheme .dijitCalendarRtl .dijitCalendarIncrease {
+  background-position: 0 0;
+}
+
+.mytheme .dijitCalendarRtl .dijitCalendarDecrease {
+  background-position: -18px 0;
+}
+
+.mytheme .dijitCalendarRtl .dijitCalendarArrowHover .dijitCalendarIncrease {
+  background-position: -36px 0;
+}
+
+.mytheme .dijitCalendarRtl .dijitCalendarArrowHover .dijitCalendarDecrease {
+  background-position: -55px 0;
+}
+
+.mytheme .dijitCalendarRtl .dijitCalendarArrowActive .dijitCalendarIncrease {
+  background-position: -72px 0;
+}
+
+.mytheme .dijitCalendarRtl .dijitCalendarArrowActive .dijitCalendarDecrease {
+  background-position: -91px 0;
+}
+
+/* TimePicker */
+.dj_ie .mytheme .dijitTimePickerRtl .dijitTimePickerTickHover,
+.dj_ie .mytheme .dijitTimePickerRtl .dijitTimePickerMarkerHover,
+.dj_ie .mytheme .dijitTimePickerRtl .dijitTimePickerMarkerSelected,
+.dj_ie .mytheme .dijitTimePickerRtl .dijitTimePickerTickSelected {
+  margin-left: -6px;
+  margin-right: -8px;
+  width: 114%;
+}
+
+/* Toolbar RTL */
+/* Repeated rules from Toolbar.css to override rule from Button_rtl.css, which is loaded after Toolbar.css */
+.mytheme .dijitToolbar .dijitComboButtonRtl .dijitButtonNode {
+  border-width: 0;
+  padding: 2px;
+}
+
+.mytheme .dijitToolbar .dijitComboButtonRtlHover .dijitButtonNode,
+.mytheme .dijitToolbar .dijitComboButtonRtlActive .dijitButtonNode {
+  border-width: 1px;
+  padding: 1px;
+}
+
+.mytheme .dijitToolbar .dijitComboButtonRtl .dijitStretch {
+  /* no rounded border on side adjacent to arrow */
+  -moz-border-radius: 0 2px 2px 0;
+  border-radius: 0 2px 2px 0;
+}
+
+.mytheme .dijitToolbar .dijitComboButtonRtl .dijitArrowButton {
+  /* no rounded border on side adjacent to button */
+  -moz-border-radius: 2px 0 0 2px;
+  border-radius: 2px 0 0 2px;
+}
+
+.mytheme .dijitToolbar .dijitComboButtonRtlHover .dijitArrowButton,
+.mytheme .dijitToolbar .dijitComboButtonRtlActive .dijitArrowButton {
+  /* border between button and arrow */
+  border-left-width: 1px;
+  border-right-width: 0;
+  padding-left: 1px;
+  padding-right: 2px;
+}
+
+/* ProgressBar
+ * 
+ * Styling of the ProgressBar when RTL direction is specified
+ */
+.mytheme .dijitProgressBarRtl .dijitProgressBarFull {
+  border-left-width: 1px;
+  border-right-width: 0px;
+}
+
+/* ===== Custom Styles ======================================================
+   Author: 
+   ========================================================================== */

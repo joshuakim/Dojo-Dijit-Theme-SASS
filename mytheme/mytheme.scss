@@ -1,0 +1,53 @@
+/*!==========================================================================
+ * IMPORTANT!
+ *   This is a SASS generated CSS file. Make edits to the original .scss file
+ * 
+ * SASS: mytheme.scss
+ * CSS:  mytheme.css
+ * 
+ * Copyright 2013 JNK Design & Development
+ * Released under the MIT license.
+ *
+ * Original Dojo Dijit CSS License:
+ * http://dojotoolkit.org/license
+ * ========================================================================== */
+
+
+// ==========================================================================
+// Dijit MyTheme SASS File Organization:
+//
+// 1. My Theme Variable Overwrites
+//    [IMPORTANT: theme name must match the file name]
+// 2. Default SASS Variables
+// 3. Load Widgets
+//    Option 1: DEFAULT - Load all widgets
+//    Option 2: Customize which widgets to load
+//                Review /sass/widgets.scss and copy over what's needed
+// 4. Additonal Custom CSS
+//
+// ==========================================================================
+
+
+// 1. My Theme Variable Overwrites
+// --------------------------------------------------------------------------
+@import "custom_variables";
+
+
+// 2. Default SASS Variables
+// --------------------------------------------------------------------------
+@import "sass/variables";
+
+
+// 3. Load Widgets
+// --------------------------------------------------------------------------
+// Option 1: DEFAULT - Load all widgets
+@import "sass/widgets";
+
+
+// ==========================================================================
+// 4. Additonal Custom CSS
+// ==========================================================================
+/* ===== Custom Styles ======================================================
+   Author: 
+   ========================================================================== */
+

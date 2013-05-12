@@ -1,0 +1,364 @@
+/* TabContainer 
+ * 
+ * Styling TabContainer means styling the TabList and Its content container  (dijitTitlePane)
+ * 
+ * Tab List: (including 4 kinds of tab location)
+ * 		.dijitTabContainerTop-tabs     - tablist container at top
+ * 		.dijitTabContainerBottom-tabs  - tablist container at bottom
+ * 		.dijitTabContainerLeft-tabs    - tablist container at left
+ * 		.dijitTabContainerRight-tabs   - tablist container at right
+ * 
+ * Tab Strip Button:
+ * 		.dijitTabStripIcon - tab strip button icon
+ * 		.dijitTabStripMenuIcon - down arrow icon position
+ * 		.dijitTabStripSlideLeftIcon - left arrow icon position
+ * 		.dijitTabStripSlideRightIcon - right arrow icon position
+ * 
+ * 		.tabStripButtonDisabled - styles for disabled tab strip buttons
+ * 
+ * Tab Button:
+ * 		.dijitTabContainerTop-tabs .dijitTab     - styles for top tab button container
+ * 		.dijitTabContainerBottom-tabs .dijitTab  - styles for bottom tab button container
+ * 		.dijitTabContainerLeft-tabs .dijitTab    - styles for left tab button container
+ * 		.dijitTabContainerRight-tabs .dijitTab   - styles for right tab button container
+ * 
+ * 		.dijitTabContainerTop-tabs .dijitTabChecked .dijitTab
+ * 				- styles for selected status of top tab button
+ * 		same to Bottom, Left, Right Tabs
+ * 
+ * 		.dijitTabHover .dijitTab   - styles when mouse hover on tab buttons
+ * 		.dijitTabActive .dijitTab  - styles when mouse down on tab buttons
+ * 		.dijitTabChecked .dijitTab  - styles when on buttons of selected tab
+ * 
+ * 		.dijitTabCloseButton - the close action buttons lie at the right top of each tab button on closable tabs
+ * 		.dijitTabCloseButtonHover - styles when mouse hover on close action button
+ * 		.dijitTabCloseButtonActive - styles when mouse down on close action button
+ * 
+ * Tab Button: (checked status)
+ * 
+ * Tab Content Container:
+ * 		.dijitTabContainerTop-dijitContentPane
+ * 		.dijitTabContainerBottom-dijitContentPane
+ * 		.dijitTabContainerLeft-dijitContentPane
+ * 		.dijitTabContainerRight-dijitContentPane - for background and padding
+ * 
+ * Nested Tabs:
+ * 		.dijitTabContainerNested - Container for nested tabs
+ * 		.dijitTabContainerTabListNested - tab list container for nested tabs
+ */
+
+@mixin unselected-tab-gradient ($direction) {
+  // white line, dark line, then fade from light to dark
+	@include alpha-white-gradient-11 ($direction, 1,0px, 1,1px, 0.1,2px, 0.6,7px, 0,100%);
+}
+@mixin topBottom-selected-tab-gradient ($direction) {
+	@include alpha-white-gradient-9 ($direction, 1,0px,  1,1px, 0,2px, 1,7px);	// white line, blue line, remainder white
+}
+/*** some common features ***/
+.#{$theme} .dijitTabPaneWrapper {
+	background:$pane-background-color;
+}
+.#{$theme} .dijitTabPaneWrapper,
+.#{$theme} .dijitTabContainerTop-tabs,
+.#{$theme} .dijitTabContainerBottom-tabs,
+.#{$theme} .dijitTabContainerLeft-tabs,
+.#{$theme} .dijitTabContainerRight-tabs {
+	/* todo: add common class name for this div */
+	border-color: $border-color;
+}
+.#{$theme} .dijitTabCloseButton {
+	background: url("#{$image-layout-tab-close}") no-repeat;
+	width: 14px;
+	height: 14px;
+	margin-left: 5px;
+	margin-right:-5px;
+}
+.#{$theme} .dijitTabCloseButtonHover {
+	background-position:-14px;
+}
+.#{$theme} .dijitTabCloseButtonActive {
+	background-position:-28px;
+}
+.#{$theme} .dijitTabSpacer {
+	/* set the spacer invisible.  note that height:0 doesn't work on IE/quirks, it's still 10px. */
+	display: none;
+}
+.#{$theme} .dijitTab {
+	border: 1px solid $border-color;
+	background-color:$unselected-background-color;
+	@include transition-property-2(background-color, border);
+ 	@include transition-duration(.35s);
+	color:$unselected-text-color;
+}
+.#{$theme} .dijitTabHover {
+	border-color: $hovered-border-color;
+	background-color:$hovered-background-color;
+ 	@include transition-duration(.25s);
+	color:$hovered-text-color;
+}
+.#{$theme} .dijitTabActive {
+	border-color: $pressed-border-color;
+	background-color:$pressed-background-color;
+	color:$selected-text-color;
+	@include transition-duration(.1s);
+}
+.#{$theme} .dijitTabChecked {
+    // selected tab
+	border-color: $border-color;			// don't use $selected-border-color because need to match border of TabContainer
+	background-color: $selected-background-color;
+	color: $selected-text-color;
+}
+.#{$theme} .dijitTabDisabled {
+	background-color: $tab-disabled-background-color;
+}
+
+.#{$theme} .tabStripButton {
+	background-color: transparent;
+	border: none;
+}
+/*** end common ***/
+
+
+/*************** top tab ***************/
+.#{$theme} .dijitTabContainerTop-tabs .dijitTab {
+    /* unselected (and not hovered/pressed) tab */
+	top: 1px;	/* used for overlap */
+	margin-right: 1px;
+	padding:3px 6px;
+	border-bottom-width: 0;
+	min-width: 60px;
+	text-align: center;
+
+	// gradient (CSS gradient, with backup image for IE6-9)
+	background-image: url("images/tabTopUnselected.png");
+	background-repeat: repeat-x;
+	@include unselected-tab-gradient(top);
+
+ 	@include box-shadow(0 -1px 1px rgba(0, 0, 0, 0.04));
+}
+
+.#{$theme} .dijitTabContainerTop-tabs .dijitTabChecked {
+	/* selected tab */
+	padding-bottom: 4px;
+	padding-top: 9px;
+
+	// gradient (CSS gradient, with backup image for IE6-9)
+	background-image: url("images/tabTopSelected.png");
+	@include topBottom-selected-tab-gradient (top);
+
+	@include box-shadow(0 -1px 2px rgba(0, 0, 0, 0.05));
+}
+
+/** end top tab **/
+
+
+/*************** bottom tab ***************/
+.#{$theme} .dijitTabContainerBottom-tabs .dijitTab {
+	/* unselected (and not hovered/pressed) tab */
+	top: -1px;	/* used for overlap */
+	margin-right: 1px;
+	padding:3px 6px;
+	border-top-width: 0;
+	min-width: 60px;
+	text-align: center;
+
+	// gradient (CSS gradient, with backup image for IE6-9)
+	background-image: url("images/tabBottomUnselected.png");
+	background-repeat: repeat-x;
+	background-position: bottom;
+	@include unselected-tab-gradient(bottom);
+
+	@include box-shadow(0 1px 1px rgba(0, 0, 0, 0.04));
+}
+
+/* selected tab */
+.#{$theme} .dijitTabContainerBottom-tabs .dijitTabChecked {
+	padding-bottom: 9px;
+	padding-top: 4px;
+
+	// gradient (CSS gradient, with backup image for IE6-9)
+	background-image: url("images/tabBottomSelected.png");
+	@include topBottom-selected-tab-gradient (bottom);
+
+	@include box-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+}
+/** end bottom tab **/
+
+/*************** left tab ***************/
+.#{$theme} .dijitTabContainerLeft-tabs .dijitTab {
+	/* unselected (and not hovered/pressed) tab */
+	left: 1px;	/* used for overlap */
+	margin-bottom: 1px;
+	padding:3px 8px 4px 4px;
+
+	// gradient (CSS gradient, with backup image for IE6-9)
+	background-image: url("images/tabLeftUnselected.png");
+	background-repeat: repeat-y;
+	@include unselected-tab-gradient(left);
+}
+
+/* selected tab */
+.#{$theme} .dijitTabContainerLeft-tabs .dijitTabChecked {
+	border-right-width: 0;
+	padding-right: 9px;
+
+	// gradient (CSS gradient, with backup image for IE6-9)
+	background-image: url("images/tabLeftSelected.png");
+	@include alpha-white-gradient-5 (left, 0.5,0px, 1,30px);  // 1/2 inch blue gradient, remainder white
+
+	@include box-shadow(-1px 0 2px rgba(0, 0, 0, .05));
+}
+/** end left tab **/
+
+/*************** right tab ***************/
+.#{$theme} .dijitTabContainerRight-tabs .dijitTab {
+	/* unselected (and not hovered/pressed) tab */
+	left: -1px;	/* used for overlap */
+	margin-bottom: 1px;
+	padding:3px 8px 4px 4px;
+
+	// gradient (CSS gradient, with backup image for IE6-9)
+	background-image: url("images/tabRightUnselected.png");
+	background-repeat: repeat-y;
+	background-position: right;
+	@include unselected-tab-gradient(right);
+}
+.#{$theme} .dijitTabContainerRight-tabs .dijitTabChecked {
+	/* selected tab */
+	padding-left: 5px;
+	border-left-width: 0;
+
+	// gradient (CSS gradient, with backup image for IE6-9)
+	background-image: url("images/tabRightSelected.png");
+	@include alpha-white-gradient-5 (right, 0.5,0px, 1,30px);	// 1/2 inch blue gradient, remainder white
+
+	@include box-shadow(1px 0 2px rgba(0, 0, 0, 0.07));
+}
+/** end right tab **/
+
+/** round corner **/
+.#{$theme} .dijitTabContainerTop-tabs .dijitTab {
+	@include border-radius(2px 2px 0 0);
+}
+.#{$theme} .dijitTabContainerBottom-tabs .dijitTab {
+	@include border-radius(0 0 2px 2px);
+}
+.#{$theme} .dijitTabContainerLeft-tabs .dijitTab {
+	@include border-radius(2px 0 0 2px);
+}
+
+.#{$theme} .dijitTabContainerRight-tabs .dijitTab {
+	@include border-radius(0 2px 2px 0);
+}
+
+/************ left/right scroll buttons + menu button ************/
+.#{$theme} .tabStripButton {
+	background-color:$button-background-color;
+	border: 1px solid $border-color;
+}
+.#{$theme} .dijitTabListContainer-top .tabStripButton {
+	padding: 4px 3px;
+	margin-top:7px;
+	@include alpha-white-gradient-9 (top, 1,0px, 0.1,1px, 0.6,6px, 0,100%);	// to match unselected tab, but had to tweak numbers
+}
+.#{$theme} .dijitTabListContainer-bottom .tabStripButton {
+	padding:4px 3px;
+	margin-bottom:7px;
+	@include alpha-white-gradient-9 (bottom, 1,0px, 0.1,1px, 0.6,6px, 0,100%);	// to match unselected tab, but had to tweak numbers
+}
+.#{$theme} .tabStripButtonHover {
+	background-color:$hovered-background-color;
+}
+.#{$theme} .tabStripButtonActive {
+	background-color:$pressed-background-color;
+}
+.#{$theme} .dijitTabStripIcon {
+	height:15px;
+	width:15px;
+	margin: 0 auto;
+	background:url("#{$image-form-button-arrows}") no-repeat -75px 50%;
+	background-color: transparent;
+}
+.#{$theme} .dijitTabStripSlideRightIcon{
+	background-position: -24px 50%;
+}
+.#{$theme} .dijitTabStripMenuIcon {
+	background-position: -51px 50%;
+}
+
+/*disabled styles for tab strip buttons*/
+.#{$theme} .dijitTabListContainer-top .tabStripButtonDisabled,
+.#{$theme} .dijitTabListContainer-bottom .tabStripButtonDisabled {
+	background-color:$tab-disabled-background-color;
+	border:1px solid $border-color;	/* to match border of TabContainer itself */
+}
+.#{$theme} .tabStripButtonDisabled .dijitTabStripSlideLeftIcon {
+	background-position:-175px 50%;
+}
+.#{$theme} .tabStripButtonDisabled .dijitTabStripSlideRightIcon {
+	background-position: -124px 50%;
+}
+.#{$theme} .tabStripButtonDisabled .dijitTabStripMenuIcon {
+	background-position: -151px 50%;
+} 
+/* Nested Tabs */
+.#{$theme} .dijitTabContainerNested .dijitTabListWrapper {
+	height: auto;
+}
+.#{$theme} .dijitTabContainerNested .dijitTabContainerTop-tabs {
+	border-bottom:solid 1px $border-color;
+	padding:2px 2px 4px;
+}
+.#{$theme} .dijitTabContainerTabListNested .dijitTab {
+	background:rgba(255, 255, 255, 0) none repeat scroll 0 0;
+	border: none;
+	padding: 4px;
+	border-color: rgba(118,157,192,0);
+	@include transition-property-2(background-color, border-color);
+ 	@include transition-duration(.3s);
+	@include border-radius(2px);
+}
+.#{$theme} .dijitTabContainerTabListNested .dijitTab {
+	background: none;
+	border: none;
+	top: 0;/* to override top: 1px/-1px for normal tabs */
+	@include box-shadow(none);
+}
+.#{$theme} .dijitTabContainerTabListNested .dijitTabHover {
+	background-color: $nestedtab-hovered-background-color;
+	border:solid 1px $nestedtab-hovered-border-color;
+	padding: 3px;	// 4px above padding - 1px compensation for border
+	@include transition-duration(.2s);
+}
+.#{$theme} .dijitTabContainerTabListNested .dijitTabHover .tabLabel {
+	text-decoration: none;
+}
+.#{$theme} .dijitTabContainerTabListNested .dijitTabActive {
+	border:solid 1px $nestedtab-selected-border-color;
+	padding: 3px;
+
+	// CSS gradient with fallback to image for IE
+	// this is in a weird place, only for active state; mailed Jason about it
+	background: $nestedtab-selected-background-color url("images/tabNested.png") repeat-x;
+	@include alpha-white-gradient-8 (0.61,0%, 0,17%, 0,83%, 0.61,100%);
+
+	@include transition-duration(.1s);
+}
+.#{$theme} .dijitTabContainerTabListNested .dijitTabChecked {
+	padding: 3px;
+	border:solid 1px $selected-border-color;
+	background-color:$selected-background-color;
+}
+.#{$theme} .dijitTabContainerTabListNested .dijitTabChecked .tabLabel {
+	text-decoration: none;
+	background-image:none;
+}
+.#{$theme} .dijitTabPaneWrapperNested {
+	border: none;/* prevent double border */
+}
+
+.#{$theme} .dijitTab,
+.#{$theme} .tabStripButton {
+    // IE6 can't handle background-image and background-color on same node
+	_background-image: none !important;
+}

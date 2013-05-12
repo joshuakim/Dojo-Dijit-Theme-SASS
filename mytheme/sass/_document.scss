@@ -1,0 +1,49 @@
+/* ======= Styling for the document itself (overriding dojo.css) ======== */
+
+@import url("../../../dojo/resources/dojo.css");
+
+.#{$theme} {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: .688em;
+  color: $document-text-color;
+}
+
+/* Headings */
+.#{$theme} h1 {
+	font-size: 1.545em; 
+	margin-bottom:0.727em;
+}
+.#{$theme} h2 { 
+	font-size: 1.364em; 
+	line-height: 1.455em; 
+	margin-top:1em; 
+	margin-bottom:0.60em;
+	font-weight: normal;
+}
+.#{$theme} h3, 
+.#{$theme} h4, 
+.#{$theme} h5, 
+.#{$theme} h6 {
+	font-size:1.091em; 
+	font-weight: normal; 
+}
+
+/* paragraphs, quotes and lists */
+.#{$theme} p { 
+	line-height: 1.3em;
+}
+
+/* pre and code */
+.#{$theme} pre, 
+.#{$theme} code { 
+	font-family:inherit; 
+	background-color: $document-shadedsection-background-color; 
+	border: 1px solid $document-border-color;
+}
+
+/* tables */
+.#{$theme} table.dojoTabular thead, 
+.#{$theme} table.dojoTabular tfoot { 
+	background-color: $document-shadedsection-background-color; 
+	border: 1px solid $document-border-color; 
+}

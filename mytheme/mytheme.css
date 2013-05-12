@@ -1,0 +1,3769 @@
+@import url(../dijit.css);
+@import url(../../icons/commonIcons.css);
+@import url(../../icons/editorIcons.css);
+/*==========================================================================
+ * IMPORTANT!
+ *   This is a SASS generated CSS file. Make edits to the original .scss file
+ * 
+ * SASS: mytheme.scss
+ * CSS:  mytheme.css
+ * 
+ * Copyright 2013 JNK Design & Development
+ * Released under the MIT license.
+ *
+ * Original Dojo Dijit CSS License:
+ * http://dojotoolkit.org/license
+ * ========================================================================== */
+/* ========= Styling rules to affect widgets ========= */
+.mytheme .dijitPopup {
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.mytheme .dijitTooltipDialogPopup {
+  /* exception popups: do not use a shadow on these because they aren't rectangular */
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* The highlight is shown in the ComboBox menu.  TODO: move to form/Common.less */
+.mytheme .dijitComboBoxHighlightMatch {
+  background-color: #abd6ff;
+}
+
+.mytheme .dijitFocusedLabel {
+  /* for checkboxes or radio buttons, hatch border around the corresponding label, to indicate focus */
+  outline: 1px dotted #494949;
+}
+
+/* Drag and Drop*/
+.mytheme .dojoDndItem {
+  border-color: rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -webkit-transition-property: background-color, border-color;
+  -moz-transition-property: background-color, border-color;
+  transition-property: background-color, border-color;
+}
+
+.mytheme .dojoDndItemOver {
+  background-color: #abd6ff;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  padding: 1px;
+  border: solid 1px #759dc0;
+  color: black;
+}
+
+.mytheme .dojoDndItemAnchor,
+.mytheme .dojoDndItemSelected {
+  background-color: #cfe5fa;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  padding: 1px;
+  border: solid 1px #759dc0;
+  color: black;
+}
+
+.mytheme .dojoDndItemBefore,
+.mytheme .dojoDndItemAfter {
+  border-color: #759dc0;
+}
+
+.mytheme table.dojoDndAvatar {
+  border: 1px solid #b5bcc7;
+  border-collapse: collapse;
+  background-color: white;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.mytheme .dojoDndAvatarHeader td {
+  height: 20px;
+  padding-left: 21px;
+}
+
+.mytheme.dojoDndMove .dojoDndAvatarHeader,
+.mytheme.dojoDndCopy .dojoDndAvatarHeader {
+  background-image: url("images/dnd.png");
+  background-repeat: no-repeat;
+  background-position: 2px -122px;
+}
+
+.mytheme .dojoDndAvatarItem td {
+  padding: 5px;
+}
+
+.mytheme.dojoDndMove .dojoDndAvatarHeader {
+  background-color: #f58383;
+  background-position: 2px -103px;
+}
+
+.mytheme.dojoDndCopy .dojoDndAvatarHeader {
+  background-color: #f58383;
+  background-position: 2px -68px;
+}
+
+.mytheme.dojoDndMove .dojoDndAvatarCanDrop .dojoDndAvatarHeader {
+  background-color: #97e68d;
+  background-position: 2px -33px;
+}
+
+.mytheme.dojoDndCopy .dojoDndAvatarCanDrop .dojoDndAvatarHeader {
+  background-color: #97e68d;
+  background-position: 2px 2px;
+}
+
+/* ContentPane 
+ *	
+ * .dijitContentPane
+ * 	set padding for basic content pane
+ * 	
+ * Nested layouts:
+ * 
+ * .dijitTabContainerTop-dijitContentPane,
+ * .dijitTabContainerLeft-dijitContentPane,
+ * .dijitTabContainerBottom-dijitContentPane,
+ * .dijitTabContainerRight-dijitContentPane
+ * 	set background-color and padding of ContentPanes nested within TabContainer (can do top, left, bottom, or right) or Accordion Container
+ *
+ * .dijitAccordionContainer-dijitContentPane
+ * 	set background-color and padding of ContentPane nested within Accordion
+ *
+ * .dijitSplitContainer-dijitContentPane, 
+ *	set background-color and padding of ContentPane nested within a SplitContainer 
+ *
+ * .dijitBorderContainer-dijitContentPane
+ *	set background-color and padding of ContentPane nested within a BorderContainer 
+ */
+.mytheme .dijitContentPane {
+  padding: 8px;
+}
+
+/* nested layouts */
+.mytheme .dijitTabContainerTop-dijitContentPane,
+.mytheme .dijitTabContainerLeft-dijitContentPane,
+.mytheme .dijitTabContainerBottom-dijitContentPane,
+.mytheme .dijitTabContainerRight-dijitContentPane,
+.mytheme .dijitAccordionContainer-dijitContentPane {
+  background-color: white;
+  padding: 8px;
+}
+
+.mytheme .dijitSplitContainer-dijitContentPane,
+.mytheme .dijitBorderContainer-dijitContentPane {
+  background-color: white;
+  padding: 8px;
+}
+
+/* TabContainer 
+ * 
+ * Styling TabContainer means styling the TabList and Its content container  (dijitTitlePane)
+ * 
+ * Tab List: (including 4 kinds of tab location)
+ * 		.dijitTabContainerTop-tabs     - tablist container at top
+ * 		.dijitTabContainerBottom-tabs  - tablist container at bottom
+ * 		.dijitTabContainerLeft-tabs    - tablist container at left
+ * 		.dijitTabContainerRight-tabs   - tablist container at right
+ * 
+ * Tab Strip Button:
+ * 		.dijitTabStripIcon - tab strip button icon
+ * 		.dijitTabStripMenuIcon - down arrow icon position
+ * 		.dijitTabStripSlideLeftIcon - left arrow icon position
+ * 		.dijitTabStripSlideRightIcon - right arrow icon position
+ * 
+ * 		.tabStripButtonDisabled - styles for disabled tab strip buttons
+ * 
+ * Tab Button:
+ * 		.dijitTabContainerTop-tabs .dijitTab     - styles for top tab button container
+ * 		.dijitTabContainerBottom-tabs .dijitTab  - styles for bottom tab button container
+ * 		.dijitTabContainerLeft-tabs .dijitTab    - styles for left tab button container
+ * 		.dijitTabContainerRight-tabs .dijitTab   - styles for right tab button container
+ * 
+ * 		.dijitTabContainerTop-tabs .dijitTabChecked .dijitTab
+ * 				- styles for selected status of top tab button
+ * 		same to Bottom, Left, Right Tabs
+ * 
+ * 		.dijitTabHover .dijitTab   - styles when mouse hover on tab buttons
+ * 		.dijitTabActive .dijitTab  - styles when mouse down on tab buttons
+ * 		.dijitTabChecked .dijitTab  - styles when on buttons of selected tab
+ * 
+ * 		.dijitTabCloseButton - the close action buttons lie at the right top of each tab button on closable tabs
+ * 		.dijitTabCloseButtonHover - styles when mouse hover on close action button
+ * 		.dijitTabCloseButtonActive - styles when mouse down on close action button
+ * 
+ * Tab Button: (checked status)
+ * 
+ * Tab Content Container:
+ * 		.dijitTabContainerTop-dijitContentPane
+ * 		.dijitTabContainerBottom-dijitContentPane
+ * 		.dijitTabContainerLeft-dijitContentPane
+ * 		.dijitTabContainerRight-dijitContentPane - for background and padding
+ * 
+ * Nested Tabs:
+ * 		.dijitTabContainerNested - Container for nested tabs
+ * 		.dijitTabContainerTabListNested - tab list container for nested tabs
+ */
+/*** some common features ***/
+.mytheme .dijitTabPaneWrapper {
+  background: white;
+}
+
+.mytheme .dijitTabPaneWrapper,
+.mytheme .dijitTabContainerTop-tabs,
+.mytheme .dijitTabContainerBottom-tabs,
+.mytheme .dijitTabContainerLeft-tabs,
+.mytheme .dijitTabContainerRight-tabs {
+  /* todo: add common class name for this div */
+  border-color: #b5bcc7;
+}
+
+.mytheme .dijitTabCloseButton {
+  background: url("images/tabClose.png") no-repeat;
+  width: 14px;
+  height: 14px;
+  margin-left: 5px;
+  margin-right: -5px;
+}
+
+.mytheme .dijitTabCloseButtonHover {
+  background-position: -14px;
+}
+
+.mytheme .dijitTabCloseButtonActive {
+  background-position: -28px;
+}
+
+.mytheme .dijitTabSpacer {
+  /* set the spacer invisible.  note that height:0 doesn't work on IE/quirks, it's still 10px. */
+  display: none;
+}
+
+.mytheme .dijitTab {
+  border: 1px solid #b5bcc7;
+  background-color: #efefef;
+  -webkit-transition-property: background-color, border;
+  -moz-transition-property: background-color, border;
+  transition-property: background-color, border;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  color: #494949;
+}
+
+.mytheme .dijitTabHover {
+  border-color: #759dc0;
+  background-color: #abd6ff;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  color: black;
+}
+
+.mytheme .dijitTabActive {
+  border-color: #759dc0;
+  background-color: #7dbdfa;
+  color: black;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+}
+
+.mytheme .dijitTabChecked {
+  border-color: #b5bcc7;
+  background-color: #cfe5fa;
+  color: black;
+}
+
+.mytheme .dijitTabDisabled {
+  background-color: lightgrey;
+}
+
+.mytheme .tabStripButton {
+  background-color: transparent;
+  border: none;
+}
+
+/*** end common ***/
+/*************** top tab ***************/
+.mytheme .dijitTabContainerTop-tabs .dijitTab {
+  /* unselected (and not hovered/pressed) tab */
+  top: 1px;
+  /* used for overlap */
+  margin-right: 1px;
+  padding: 3px 6px;
+  border-bottom-width: 0;
+  min-width: 60px;
+  text-align: center;
+  background-image: url("images/tabTopUnselected.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.04);
+  -moz-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.mytheme .dijitTabContainerTop-tabs .dijitTabChecked {
+  /* selected tab */
+  padding-bottom: 4px;
+  padding-top: 9px;
+  background-image: url("images/tabTopSelected.png");
+  background-image: -moz-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0) 2px, white 7px);
+  background-image: -webkit-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0) 2px, white 7px);
+  background-image: -o-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0) 2px, white 7px);
+  background-image: -ms-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0) 2px, white 7px);
+  -webkit-box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/** end top tab **/
+/*************** bottom tab ***************/
+.mytheme .dijitTabContainerBottom-tabs .dijitTab {
+  /* unselected (and not hovered/pressed) tab */
+  top: -1px;
+  /* used for overlap */
+  margin-right: 1px;
+  padding: 3px 6px;
+  border-top-width: 0;
+  min-width: 60px;
+  text-align: center;
+  background-image: url("images/tabBottomUnselected.png");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-image: -moz-linear-gradient(bottom, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(bottom, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(bottom, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(bottom, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+/* selected tab */
+.mytheme .dijitTabContainerBottom-tabs .dijitTabChecked {
+  padding-bottom: 9px;
+  padding-top: 4px;
+  background-image: url("images/tabBottomSelected.png");
+  background-image: -moz-linear-gradient(bottom, white 0px, white 1px, rgba(255, 255, 255, 0) 2px, white 7px);
+  background-image: -webkit-linear-gradient(bottom, white 0px, white 1px, rgba(255, 255, 255, 0) 2px, white 7px);
+  background-image: -o-linear-gradient(bottom, white 0px, white 1px, rgba(255, 255, 255, 0) 2px, white 7px);
+  background-image: -ms-linear-gradient(bottom, white 0px, white 1px, rgba(255, 255, 255, 0) 2px, white 7px);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/** end bottom tab **/
+/*************** left tab ***************/
+.mytheme .dijitTabContainerLeft-tabs .dijitTab {
+  /* unselected (and not hovered/pressed) tab */
+  left: 1px;
+  /* used for overlap */
+  margin-bottom: 1px;
+  padding: 3px 8px 4px 4px;
+  background-image: url("images/tabLeftUnselected.png");
+  background-repeat: repeat-y;
+  background-image: -moz-linear-gradient(left, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(left, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(left, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(left, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+}
+
+/* selected tab */
+.mytheme .dijitTabContainerLeft-tabs .dijitTabChecked {
+  border-right-width: 0;
+  padding-right: 9px;
+  background-image: url("images/tabLeftSelected.png");
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0.5) 0px, white 30px);
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0px, white 30px);
+  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0.5) 0px, white 30px);
+  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0.5) 0px, white 30px);
+  -webkit-box-shadow: -1px 0 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: -1px 0 2px rgba(0, 0, 0, 0.05);
+  box-shadow: -1px 0 2px rgba(0, 0, 0, 0.05);
+}
+
+/** end left tab **/
+/*************** right tab ***************/
+.mytheme .dijitTabContainerRight-tabs .dijitTab {
+  /* unselected (and not hovered/pressed) tab */
+  left: -1px;
+  /* used for overlap */
+  margin-bottom: 1px;
+  padding: 3px 8px 4px 4px;
+  background-image: url("images/tabRightUnselected.png");
+  background-repeat: repeat-y;
+  background-position: right;
+  background-image: -moz-linear-gradient(right, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(right, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(right, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(right, white 0px, white 1px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.6) 7px, rgba(255, 255, 255, 0) 100%);
+}
+
+.mytheme .dijitTabContainerRight-tabs .dijitTabChecked {
+  /* selected tab */
+  padding-left: 5px;
+  border-left-width: 0;
+  background-image: url("images/tabRightSelected.png");
+  background-image: -moz-linear-gradient(right, rgba(255, 255, 255, 0.5) 0px, white 30px);
+  background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.5) 0px, white 30px);
+  background-image: -o-linear-gradient(right, rgba(255, 255, 255, 0.5) 0px, white 30px);
+  background-image: -ms-linear-gradient(right, rgba(255, 255, 255, 0.5) 0px, white 30px);
+  -webkit-box-shadow: 1px 0 2px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 1px 0 2px rgba(0, 0, 0, 0.07);
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.07);
+}
+
+/** end right tab **/
+/** round corner **/
+.mytheme .dijitTabContainerTop-tabs .dijitTab {
+  -moz-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+}
+
+.mytheme .dijitTabContainerBottom-tabs .dijitTab {
+  -moz-border-radius: 0 0 2px 2px;
+  border-radius: 0 0 2px 2px;
+}
+
+.mytheme .dijitTabContainerLeft-tabs .dijitTab {
+  -moz-border-radius: 2px 0 0 2px;
+  border-radius: 2px 0 0 2px;
+}
+
+.mytheme .dijitTabContainerRight-tabs .dijitTab {
+  -moz-border-radius: 0 2px 2px 0;
+  border-radius: 0 2px 2px 0;
+}
+
+/************ left/right scroll buttons + menu button ************/
+.mytheme .tabStripButton {
+  background-color: #e5f2fe;
+  border: 1px solid #b5bcc7;
+}
+
+.mytheme .dijitTabListContainer-top .tabStripButton {
+  padding: 4px 3px;
+  margin-top: 7px;
+  background-image: -moz-linear-gradient(top, white 0px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.6) 6px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(top, white 0px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.6) 6px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(top, white 0px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.6) 6px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(top, white 0px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.6) 6px, rgba(255, 255, 255, 0) 100%);
+}
+
+.mytheme .dijitTabListContainer-bottom .tabStripButton {
+  padding: 4px 3px;
+  margin-bottom: 7px;
+  background-image: -moz-linear-gradient(bottom, white 0px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.6) 6px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(bottom, white 0px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.6) 6px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(bottom, white 0px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.6) 6px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(bottom, white 0px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.6) 6px, rgba(255, 255, 255, 0) 100%);
+}
+
+.mytheme .tabStripButtonHover {
+  background-color: #abd6ff;
+}
+
+.mytheme .tabStripButtonActive {
+  background-color: #7dbdfa;
+}
+
+.mytheme .dijitTabStripIcon {
+  height: 15px;
+  width: 15px;
+  margin: 0 auto;
+  background: url("images/buttonArrows.png") no-repeat -75px 50%;
+  background-color: transparent;
+}
+
+.mytheme .dijitTabStripSlideRightIcon {
+  background-position: -24px 50%;
+}
+
+.mytheme .dijitTabStripMenuIcon {
+  background-position: -51px 50%;
+}
+
+/*disabled styles for tab strip buttons*/
+.mytheme .dijitTabListContainer-top .tabStripButtonDisabled,
+.mytheme .dijitTabListContainer-bottom .tabStripButtonDisabled {
+  background-color: lightgrey;
+  border: 1px solid #b5bcc7;
+  /* to match border of TabContainer itself */
+}
+
+.mytheme .tabStripButtonDisabled .dijitTabStripSlideLeftIcon {
+  background-position: -175px 50%;
+}
+
+.mytheme .tabStripButtonDisabled .dijitTabStripSlideRightIcon {
+  background-position: -124px 50%;
+}
+
+.mytheme .tabStripButtonDisabled .dijitTabStripMenuIcon {
+  background-position: -151px 50%;
+}
+
+/* Nested Tabs */
+.mytheme .dijitTabContainerNested .dijitTabListWrapper {
+  height: auto;
+}
+
+.mytheme .dijitTabContainerNested .dijitTabContainerTop-tabs {
+  border-bottom: solid 1px #b5bcc7;
+  padding: 2px 2px 4px;
+}
+
+.mytheme .dijitTabContainerTabListNested .dijitTab {
+  background: rgba(255, 255, 255, 0) none repeat scroll 0 0;
+  border: none;
+  padding: 4px;
+  border-color: rgba(118, 157, 192, 0);
+  -webkit-transition-property: background-color, border-color;
+  -moz-transition-property: background-color, border-color;
+  transition-property: background-color, border-color;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.mytheme .dijitTabContainerTabListNested .dijitTab {
+  background: none;
+  border: none;
+  top: 0;
+  /* to override top: 1px/-1px for normal tabs */
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.mytheme .dijitTabContainerTabListNested .dijitTabHover {
+  background-color: #e5f2fe;
+  border: solid 1px #cfe5fa;
+  padding: 3px;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.mytheme .dijitTabContainerTabListNested .dijitTabHover .tabLabel {
+  text-decoration: none;
+}
+
+.mytheme .dijitTabContainerTabListNested .dijitTabActive {
+  border: solid 1px #759dc0;
+  padding: 3px;
+  background: #abd6ff url("images/tabNested.png") repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.61) 0%, rgba(255, 255, 255, 0) 17%, rgba(255, 255, 255, 0) 83%, rgba(255, 255, 255, 0.61) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.61) 0%, rgba(255, 255, 255, 0) 17%, rgba(255, 255, 255, 0) 83%, rgba(255, 255, 255, 0.61) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.61) 0%, rgba(255, 255, 255, 0) 17%, rgba(255, 255, 255, 0) 83%, rgba(255, 255, 255, 0.61) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.61) 0%, rgba(255, 255, 255, 0) 17%, rgba(255, 255, 255, 0) 83%, rgba(255, 255, 255, 0.61) 100%);
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+}
+
+.mytheme .dijitTabContainerTabListNested .dijitTabChecked {
+  padding: 3px;
+  border: solid 1px #759dc0;
+  background-color: #cfe5fa;
+}
+
+.mytheme .dijitTabContainerTabListNested .dijitTabChecked .tabLabel {
+  text-decoration: none;
+  background-image: none;
+}
+
+.mytheme .dijitTabPaneWrapperNested {
+  border: none;
+  /* prevent double border */
+}
+
+.mytheme .dijitTab,
+.mytheme .tabStripButton {
+  _background-image: none !important;
+}
+
+/* Accordion
+ * 
+ * Styling AccordionContainer basically means styling the accordion pane (dijitAccordionInnerContainer)
+ * and the title inside of it (dijitAccordionTitle).   There are 4 basic states to style:
+ * 
+ * 1. closed pane (and default styling): 
+ * 		.dijitAccordionInnerContainer - container for each accordion child
+ * 		.dijitAccordionTitle - title for each accordion child
+ *
+ * 2. active closed pane (ie, mouse down on a title bar)
+ * 		.dijitAccordionInnerContainerActive - for background-color, border
+ * 		.dijitAccordionInnerContainerActive dijitAccordionTitle - for text color
+ * 
+ * 3. open pane (expanded child)
+ *		.dijitAccordionChildWrapper - wraps around the child widget (typically ContentPane)
+ *			setting a margin so that there's blue trim all the way around the child
+ *
+ * 		These rules need to override the closed pane active:
+ *
+ * 		.dijitAccordionInnerContainerSelected - for background-color, border
+ * 		.dijitAccordionInnerContainerSelected .dijitAccordionTitle - for text color
+ * 
+ * 4. hovered pane, open or closed
+ * 		The selectors below affect hovering over both a closed pane (ie, hovering a title bar),
+ * 		and hovering over an open pane.   Also, treat mouse down on an open pane as a hover:
+ *
+ * 		.dijitAccordionInnerContainerHover, .dijitAccordionInnerContainerSelectedActive - for background-color, border
+ * 		.dijitAccordionInnerContainerHover .dijitAccordionTitle - for text color
+ */
+.mytheme .dijitAccordionContainer {
+  border: none;
+}
+
+.mytheme .dijitAccordionInnerContainer {
+  background-color: #efefef;
+  /* gray, for closed pane */
+  border: solid 1px #b5bcc7;
+  margin-bottom: 1px;
+  -webkit-transition-property: background-color, border;
+  -moz-transition-property: background-color, border;
+  transition-property: background-color, border;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+
+.mytheme .dijitAccordionTitle {
+  background-color: transparent;
+  /* pick up color from dijitAccordionInnerContainer */
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  padding: 5px 7px 2px 7px;
+  min-height: 17px;
+  color: #494949;
+}
+
+.mytheme .dijitAccordionContainer .dijitAccordionChildWrapper {
+  /* this extends the blue trim styling of the title bar to wrapping around the node.
+   * done by setting margin
+   */
+  background-color: white;
+  border: 1px solid #759dc0;
+  margin: 0 2px 2px;
+}
+
+.mytheme .dijitAccordionContainer .dijitAccordionContainer-child {
+  /* this is affecting the child widget itself */
+  padding: 9px;
+}
+
+/* Active state for closed pane */
+.mytheme .dijitAccordionInnerContainerActive {
+  border: 1px solid #759dc0;
+  background-color: #7dbdfa;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+}
+
+.mytheme .dijitAccordionInnerContainerActive .dijitAccordionTitle {
+  background-image: url("images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  color: black;
+}
+
+/* Open (a.k.a. selected) pane */
+.mytheme .dijitAccordionInnerContainerSelected {
+  border-color: #759dc0;
+  background-color: #cfe5fa;
+}
+
+.mytheme .dijitAccordionInnerContainerSelected .dijitAccordionTitle {
+  color: black;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  /* avoid effect when clicking the title of the open pane */
+}
+
+/* Hovering open or closed pane */
+.mytheme .dijitAccordionInnerContainerHover .dijitAccordionTitle {
+  /* both open and closed */
+  color: black;
+}
+
+.mytheme .dijitAccordionInnerContainerHover,
+.mytheme .dijitAccordionInnerContainerSelectedActive {
+  /* note: clicking the currently selected Accordion pane should have no effect, so treating same as hover. */
+  border: 1px solid #759dc0;
+  background-color: #abd6ff;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.mytheme .dijitAccordionInnerContainerSelectedHover .dijitAccordionChildWrapper,
+.mytheme .dijitAccordionInnerContainerSelectedActive .dijitAccordionChildWrapper {
+  background-color: white;
+  border: 1px solid #759dc0 !important;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.25);
+}
+
+/* BorderContainer 
+
+Splitters and gutters separate panes within a BorderContainer. Splitters can be moved up and down (horizonal splitters) or left and right (vertical splitters), while Gutters are static. A "thumb" is the slit on a Splitter that indicates it is movable. 
+
+Styling the BorderContainer widget consists of the following: 
+
+.dijitBorderContainer - for border and padding of the entire border container
+
+.dijitSplitContainer-child, .dijitBorderContainer-child - for border or child panes of the border container. By default borders are put on all children of BorderContainer.  
+
+.dijitBorderContainer-dijitTabContainerTop,
+.dijitBorderContainer-dijitTabContainerBottom,
+.dijitBorderContainer-dijitTabContainerLeft,
+.dijitBorderContainer-dijitTabContainerRight,
+.dijitBorderContainer-dijitAccordionContainer   -for border of the border containers within TabContainer or AccordionContainer widget
+
+.dijitBorderContainer-dijitBorderContainer - for border and padding of nested BorderContainers
+
+Splitters and gutters:  
+
+.dijitSplitterH, .dijitGutterH - for height, background, and border of a horizontal splitter and gutter 
+.dijitSplitterH .dijitSplitterThumb - for color, height/width of the thumb on a horizontal splitter
+.dijitSplitterV, .dijitGutterV - - for height, background, and border of a vertical splitter and gutter 
+.dijitSplitterV .dijitSplitterThumb - for color, height/width of the thumb on a vertical splitter
+.dijitSplitterHHover - for background-color of a hovered horizontal splitter
+.dijitSplitterHHover .dijitSplitterThumb - for background-color of a hovered thumb on a horizontal splitter
+.dijitSplitterVHover  - for background-color of a hovered vertical splitter
+.dijitSplitterVHover .dijitSplitterThumb - for background-color of a hovered thumb on a vertical splitter
+.dijitSplitterHActive - for background-color of an active horizontal splitter
+.dijitSplitterVActive - for background-color of an active horizontal splitter
+*/
+.mytheme .dijitBorderContainer {
+  /* matches the width of the splitters between panes */
+  padding: 5px;
+}
+
+.mytheme .dijitSplitContainer-child,
+.mytheme .dijitBorderContainer-child {
+  /* By default put borders on all children of BorderContainer,
+   *  to give illusion of borders on the splitters themselves.
+   */
+  border: 1px #b5bcc7 solid;
+}
+
+.mytheme .dijitBorderContainer-dijitTabContainerTop,
+.mytheme .dijitBorderContainer-dijitTabContainerBottom,
+.mytheme .dijitBorderContainer-dijitTabContainerLeft,
+.mytheme .dijitBorderContainer-dijitTabContainerRight,
+.mytheme .dijitBorderContainer-dijitAccordionContainer {
+  /* except that TabContainer defines borders on it's sub-nodes (tablist and dijitTabPaneWrapper),
+   * so override rule setting border on domNode
+   */
+  border: none;
+}
+
+.mytheme .dijitBorderContainer-dijitBorderContainer {
+  /* make nested BorderContainers look like a single big widget with lots of splitters */
+  border: 0;
+  padding: 0;
+}
+
+/* Splitters and gutters */
+.mytheme .dijitSplitterH,
+.mytheme .dijitGutterH {
+  background: none;
+  border: 0;
+  height: 5px;
+}
+
+.mytheme .dijitSplitterH .dijitSplitterThumb {
+  background: #b5bcc7 none;
+  height: 1px;
+  top: 2px;
+  width: 19px;
+}
+
+.mytheme .dijitSplitterV,
+.mytheme .dijitGutterV {
+  background: none;
+  border: 0;
+  width: 5px;
+  margin: 0;
+}
+
+.mytheme .dijitSplitterV .dijitSplitterThumb {
+  background: #b5bcc7 none;
+  height: 19px;
+  left: 2px;
+  width: 1px;
+  margin: 0;
+}
+
+/* hovered splitter */
+.mytheme .dijitSplitterHHover,
+.mytheme .dijitSplitterVHover {
+  font-size: 1px;
+  background-color: #cfe5fa;
+}
+
+.mytheme .dijitSplitterHHover {
+  background-image: -moz-linear-gradient(left, white 0px, rgba(255, 255, 255, 0) 50%, white 100%);
+  background-image: -webkit-linear-gradient(left, white 0px, rgba(255, 255, 255, 0) 50%, white 100%);
+  background-image: -o-linear-gradient(left, white 0px, rgba(255, 255, 255, 0) 50%, white 100%);
+  background-image: -ms-linear-gradient(left, white 0px, rgba(255, 255, 255, 0) 50%, white 100%);
+}
+
+.mytheme .dijitSplitterVHover {
+  background-image: -moz-linear-gradient(top, white 0px, rgba(255, 255, 255, 0) 50%, white 100%);
+  background-image: -webkit-linear-gradient(top, white 0px, rgba(255, 255, 255, 0) 50%, white 100%);
+  background-image: -o-linear-gradient(top, white 0px, rgba(255, 255, 255, 0) 50%, white 100%);
+  background-image: -ms-linear-gradient(top, white 0px, rgba(255, 255, 255, 0) 50%, white 100%);
+}
+
+.mytheme .dijitSplitterHHover .dijitSplitterThumb,
+.mytheme .dijitSplitterVHover .dijitSplitterThumb {
+  background: #759dc0 none;
+}
+
+/* active splitter */
+.mytheme .dijitSplitterHActive,
+.mytheme .dijitSplitterVActive {
+  font-size: 1px;
+  background-color: #abd6ff;
+  background-image: none;
+}
+
+/* claro/form/Common.css */
+/*========================= common css =========================*/
+/* 'dijitTextBox' refers to 'dijit(TextBox|DateTextBox|CurrencyTextBox|...)' */
+.mytheme .dijitTextBox,
+.mytheme .dijitInputInner {
+  color: black;
+}
+
+.mytheme .dijitSelectError .dijitValidationContainer,
+.mytheme .dijitTextBoxError .dijitValidationContainer {
+  background-color: #d46464;
+  background-image: url("images/error.png");
+  background-position: top center;
+  border: solid #d46464 0;
+  width: 9px;
+}
+
+.mytheme .dijitTextBoxError .dijitValidationContainer {
+  border-left-width: 1px;
+}
+
+.mytheme .dijitSelectError .dijitValidationIcon,
+.mytheme .dijitTextBoxError .dijitValidationIcon {
+  width: 0;
+  background-color: transparent !important;
+  /* so the INPUT doesn't obscure the border in rtl+a11y */
+}
+
+/* Padding for the input area of TextBox based widgets, and corresponding padding for the
+ * down arrow button and the placeholder.   placeholder is explicitly listed  because
+ * dijitPlaceHolder is absolutely positioned, so padding set on dijitInputField
+ * won't affect it
+ */
+.mytheme .dijitTextArea,
+.mytheme .dijitInputField .dijitPlaceHolder {
+  padding: 2px;
+}
+
+.mytheme .dijitSelect .dijitInputField,
+.mytheme .dijitTextBox .dijitInputField {
+  padding: 1px 2px;
+}
+
+.dj_gecko .mytheme .dijitTextBox .dijitInputInner,
+.dj_webkit .mytheme .dijitTextBox .dijitInputInner {
+  padding: 1px;
+}
+
+.mytheme .dijitSelect,
+.mytheme .dijitSelect .dijitButtonContents,
+.mytheme .dijitTextBox,
+.mytheme .dijitTextBox .dijitButtonNode {
+  /* color for (outer) border on *TextBox widgets, and border between input and buttons on ComboBox and Spinner */
+  border-color: #b5bcc7;
+  -webkit-transition-property: background-color, border;
+  -moz-transition-property: background-color, border;
+  transition-property: background-color, border;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+}
+
+.mytheme .dijitSelect,
+.mytheme .dijitTextBox {
+  background-color: white;
+}
+
+/* hover */
+.mytheme .dijitSelectHover,
+.mytheme .dijitSelectHover .dijitButtonContents,
+.mytheme .dijitTextBoxHover,
+.mytheme .dijitTextBoxHover .dijitButtonNode {
+  border-color: #759dc0;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+}
+
+.mytheme .dijitTextBoxHover {
+  background-color: #e5f2fe;
+  background-image: -moz-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -webkit-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -o-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -ms-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+}
+
+/* error state */
+.mytheme .dijitSelectError,
+.mytheme .dijitSelectError .dijitButtonContents,
+.mytheme .dijitTextBoxError,
+.mytheme .dijitTextBoxError .dijitButtonNode {
+  border-color: #d46464;
+}
+
+/* focused state */
+.mytheme .dijitSelectFocused,
+.mytheme .dijitSelectFocused .dijitButtonContents,
+.mytheme .dijitTextBoxFocused,
+.mytheme .dijitTextBoxFocused .dijitButtonNode {
+  border-color: #759dc0;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+}
+
+.mytheme .dijitTextBoxFocused {
+  background-color: white;
+  background-image: -moz-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -webkit-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -o-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -ms-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+}
+
+.mytheme .dijitTextBoxFocused .dijitInputContainer {
+  background: white;
+}
+
+.mytheme .dijitSelectErrorFocused,
+.mytheme .dijitSelectErrorFocused .dijitButtonContents,
+.mytheme .dijitTextBoxErrorFocused,
+.mytheme .dijitTextBoxErrorFocused .dijitButtonNode {
+  border-color: #ce5050;
+}
+
+/* disabled state */
+.mytheme .dijitSelectDisabled,
+.mytheme .dijitSelectDisabled .dijitButtonContents,
+.mytheme .dijitTextBoxDisabled,
+.mytheme .dijitTextBoxDisabled .dijitButtonNode {
+  border-color: lightgrey;
+}
+
+.mytheme .dijitSelectDisabled,
+.mytheme .dijitTextBoxDisabled,
+.mytheme .dijitTextBoxDisabled .dijitInputContainer {
+  background-color: #efefef;
+  background-image: none;
+}
+
+.mytheme .dijitSelectDisabled,
+.mytheme .dijitTextBoxDisabled,
+.mytheme .dijitTextBoxDisabled .dijitInputInner {
+  color: #818181;
+}
+
+.dj_webkit .mytheme .dijitDisabled input {
+  /* because WebKit lightens disabled input/textarea no matter what color you specify */
+  color: #757575;
+}
+
+.dj_webkit .mytheme textarea.dijitTextAreaDisabled {
+  /* because WebKit lightens disabled input/textarea no matter what color you specify */
+  color: #1b1b1b;
+}
+
+/*========================= for special widgets =========================*/
+/* Input boxes with an arrow (for a drop down) */
+.mytheme .dijitSelect .dijitArrowButtonInner,
+.mytheme .dijitComboBox .dijitArrowButtonInner {
+  background-image: url("images/commonFormArrows.png");
+  background-position: -35px 53%;
+  background-repeat: no-repeat;
+  margin: 0;
+  width: 16px;
+}
+
+.mytheme .dijitComboBox .dijitArrowButtonInner {
+  border: 1px solid white;
+}
+
+.mytheme .dijitToolbar .dijitComboBox .dijitArrowButtonInner {
+  border: none;
+}
+
+.mytheme .dijitToolbar .dijitComboBox .dijitArrowButtonInner {
+  border: none;
+}
+
+/* Add 1px vertical padding to the <input> where user types and the validation icon,
+   to match the 1px border on arrow button */
+.mytheme .dijitSelect .dijitValidationContainer,
+.mytheme .dijitSelectLabel,
+.mytheme .dijitTextBox .dijitInputInner,
+.mytheme .dijitTextBox .dijitValidationContainer {
+  padding: 1px 0;
+}
+
+.mytheme .dijitComboBox .dijitButtonNode {
+  background-color: #efefef;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+
+/* Arrow "hover" effect:
+ * The arrow button should change color whenever the mouse is in a position such that clicking it
+ * will toggle the drop down.   That's either (1) anywhere over the ComboBox or (2) over the arrow
+ * button, depending on the openOnClick setting for the widget.
+ */
+.mytheme .dijitComboBoxOpenOnClickHover .dijitButtonNode,
+.mytheme .dijitComboBox .dijitDownArrowButtonHover {
+  background-color: #abd6ff;
+}
+
+.mytheme .dijitComboBoxOpenOnClickHover .dijitArrowButtonInner,
+.mytheme .dijitComboBox .dijitDownArrowButtonHover .dijitArrowButtonInner {
+  background-position: -70px 53%;
+}
+
+/* Arrow Button change when drop down is open */
+.mytheme .dijitComboBox .dijitHasDropDownOpen {
+  background-color: #7dbdfa;
+  background-image: url("images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  padding: 1px;
+}
+
+.dj_iequirks .mytheme .dijitComboBox .dijitHasDropDownOpen {
+  padding: 1px 0;
+}
+
+.mytheme .dijitComboBox .dijitHasDropDownOpen .dijitArrowButtonInner {
+  background-position: -70px 53%;
+  border: 0 none;
+}
+
+/* disabled state */
+.mytheme div.dijitComboBoxDisabled .dijitArrowButtonInner {
+  /* specific selector set to override background-position setting from Button.js
+   * (.mytheme .dijitComboBoxDisabled .dijitArrowButtonInner) */
+  background-position: 0 50%;
+  background-color: #efefef;
+}
+
+/*========================= hacks for browsers =========================*/
+/* it seems the input[type="hidden"] has a height (16px) too... this may cause the widget's height calculate error */
+.dj_ff3 .mytheme .dijitInputField input[type="hidden"] {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+.dj_borderbox .mytheme .dijitComboBox .dijitHasDropDownOpen .dijitArrowButtonInner {
+  width: 18px;
+}
+
+.dj_borderbox .mytheme .dijitComboBoxFocused .dijitHasDropDownOpen .dijitArrowButtonInner {
+  width: 16px;
+}
+
+/* Button | DropDownButton | ComboButton | ToggleButton
+ * 
+ * Styling Buttons mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitButton
+ * 		.dijitDropDownButton
+ * 		.dijitComboButton
+ * 		.dijitButtonNode - common button/arrow wrapper shared across all three button types 
+ *
+ * 2. Button text
+ * 		.dijitButtonText
+ * 
+ * 3. Arrows - only for DropDownButton and ComboButton
+ * 	     There are total four directions arrows - down, left, right, up:
+ * 		.dijitArrowButtonInner - down arrow by default
+ *      .dijitLeftArrowButton .dijitArrowButtonInner - left arrow
+ *      .dijitRightArrowButton .dijitArrowButtonInner - right arrow
+ *      .dijitUpArrowButton .dijitArrowButtonInner - up arrow
+ * 
+ * 4. States - Hover, Active, Disabled, e.g.
+ * 		.dijitButtonHover .dijitButtonNode
+ * 		.dijitButtonActive .dijitButtonNode
+ * 		.dijitButtonDisabled .dijitButtonNode
+ *      
+ *      .dijitDisabled .dijitArrowButtonInner  - disabled arrow states 
+ */
+.mytheme .dijitButtonNode {
+  /* rules for dijit.form.*Button widgets and arrow nodes on ComboBox, Spinner etc. */
+  -webkit-transition-property: background-color;
+  -moz-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.mytheme .dijitButton .dijitButtonNode,
+.mytheme .dijitDropDownButton .dijitButtonNode,
+.mytheme .dijitComboButton .dijitButtonNode,
+.mytheme .dijitToggleButton .dijitButtonNode {
+  /* rules for the dijit.form.*Button widgets (see also ComboButton section below) */
+  border: 1px solid #759dc0;
+  padding: 2px 4px 4px 4px;
+  color: black;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  background-color: #bcd8f4;
+  background-image: url("images/buttonEnabled.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(white 0px, rgba(255, 255, 255, 0) 3px, rgba(255, 255, 255, 0.75) 100%);
+  background-image: -webkit-linear-gradient(white 0px, rgba(255, 255, 255, 0) 3px, rgba(255, 255, 255, 0.75) 100%);
+  background-image: -o-linear-gradient(white 0px, rgba(255, 255, 255, 0) 3px, rgba(255, 255, 255, 0.75) 100%);
+  background-image: -ms-linear-gradient(white 0px, rgba(255, 255, 255, 0) 3px, rgba(255, 255, 255, 0.75) 100%);
+  _background-image: none;
+}
+
+.mytheme .dijitComboButton .dijitArrowButton {
+  border-left-width: 0;
+  padding: 4px 2px 4px 2px;
+  /* TODO: still needed? */
+}
+
+/*arrow styles for down/up/left/right directions*/
+.mytheme .dijitArrowButtonInner {
+  width: 15px;
+  height: 15px;
+  margin: 0 auto;
+  background-image: url("images/buttonArrows.png");
+  background-repeat: no-repeat;
+  background-position: -51px 53%;
+}
+
+.mytheme .dijitLeftArrowButton .dijitArrowButtonInner {
+  background-position: -77px 53%;
+}
+
+.mytheme .dijitRightArrowButton .dijitArrowButtonInner {
+  background-position: -26px 53%;
+}
+
+.mytheme .dijitUpArrowButton .dijitArrowButtonInner {
+  background-position: 0 53%;
+}
+
+.mytheme .dijitDisabled .dijitArrowButtonInner {
+  background-position: -151px 53%;
+}
+
+.mytheme .dijitDisabled .dijitLeftArrowButton .dijitArrowButtonInner {
+  background-position: -177px 53%;
+}
+
+.mytheme .dijitDisabled .dijitRightArrowButton .dijitArrowButtonInner {
+  background-position: -126px 53%;
+}
+
+.mytheme .dijitDisabled .dijitUpArrowButton .dijitArrowButtonInner {
+  background-position: -100px 53%;
+}
+
+.mytheme .dijitButtonText {
+  padding: 0 0.3em;
+  text-align: center;
+}
+
+/* hover status */
+.mytheme .dijitButtonHover .dijitButtonNode,
+.mytheme .dijitDropDownButtonHover .dijitButtonNode,
+.mytheme .dijitComboButton .dijitButtonNodeHover,
+.mytheme .dijitComboButton .dijitDownArrowButtonHover,
+.mytheme .dijitToggleButtonHover .dijitButtonNode {
+  background-color: #86bdf2;
+  color: black;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+/* active, checked status */
+.mytheme .dijitButtonActive .dijitButtonNode,
+.mytheme .dijitDropDownButtonActive .dijitButtonNode,
+.mytheme .dijitComboButtonActive .dijitButtonNode,
+.mytheme .dijitToggleButtonActive .dijitButtonNode,
+.mytheme .dijitToggleButtonChecked .dijitButtonNode {
+  background-color: #86bdf2;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+}
+
+/* disabled status */
+.mytheme .dijitButtonDisabled,
+.mytheme .dijitDropDownButtonDisabled,
+.mytheme .dijitComboButtonDisabled,
+.mytheme .dijitToggleButtonDisabled {
+  background-image: none;
+  outline: none;
+}
+
+.mytheme .dijitButtonDisabled .dijitButtonNode,
+.mytheme .dijitDropDownButtonDisabled .dijitButtonNode,
+.mytheme .dijitComboButtonDisabled .dijitButtonNode,
+.mytheme .dijitToggleButtonDisabled .dijitButtonNode {
+  background-color: #efefef;
+  border: solid 1px lightgrey;
+  color: #818181;
+  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  background-image: url("images/buttonDisabled.png");
+  background-image: -moz-linear-gradient(white 0%, rgba(255, 255, 255, 0) 40%);
+  background-image: -webkit-linear-gradient(white 0%, rgba(255, 255, 255, 0) 40%);
+  background-image: -o-linear-gradient(white 0%, rgba(255, 255, 255, 0) 40%);
+  background-image: -ms-linear-gradient(white 0%, rgba(255, 255, 255, 0) 40%);
+  _background-image: none;
+}
+
+.mytheme .dijitComboButtonDisabled .dijitArrowButton {
+  border-left-width: 0;
+}
+
+/* for ComboButton */
+.mytheme table.dijitComboButton {
+  border-collapse: separate;
+  /* override dijit.css so that ComboBox rounded corners work */
+}
+
+.mytheme .dijitComboButton .dijitStretch {
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.mytheme .dijitComboButton .dijitArrowButton {
+  -moz-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+/* CheckBox
+ * 
+ * Styling CheckBox mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitCheckBox|.dijitCheckBoxIcon - for border, padding, width|height and background image
+ * 
+ * 2. CheckBox within ToggleButton
+ * 		.dijitToggleButton|.dijitToggleButtonChecked .* - for background image
+ * 
+ * 3. Checked state
+ * 		.dijitCheckBoxChecked - for checked background-color|image
+ * 		.dijitToggleButtonChecked - for border, background-color|image, display and width|height
+ * 
+ * 4. Hover state
+ * 		.dijitCheckBoxHover|.dijitCheckBoxCheckedHover - for background image
+ * 
+ * 5. Disabled state
+ * 		.dijitCheckBoxDisabled|.dijitCheckBoxCheckedDisabled - for background image
+ */
+.mytheme .dijitToggleButton .dijitCheckBoxIcon {
+  background-image: url("images/checkmarkNoBorder.png");
+}
+
+.dj_ie6 .mytheme .dijitToggleButton .dijitCheckBoxIcon {
+  background-image: url("images/checkmarkNoBorder.gif");
+}
+
+.mytheme .dijitCheckBox,
+.mytheme .dijitCheckBoxIcon {
+  background-image: url("images/checkboxRadioButtonStates.png");
+  /* checkbox sprite image */
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 16px;
+  margin: 0 2px 0 0;
+  padding: 0;
+}
+
+.dj_ie6 .mytheme .dijitCheckBox,
+.dj_ie6 .mytheme .dijitCheckBoxIcon {
+  background-image: url("images/checkboxAndRadioButtons_IE6.png");
+  /* checkbox sprite image */
+}
+
+.mytheme .dijitCheckBox,
+.mytheme .dijitToggleButton .dijitCheckBoxIcon {
+  /* unchecked */
+  background-position: -15px;
+}
+
+.mytheme .dijitCheckBoxChecked,
+.mytheme .dijitToggleButtonChecked .dijitCheckBoxIcon {
+  /* checked */
+  background-position: -0;
+}
+
+.mytheme .dijitCheckBoxDisabled {
+  /* disabled */
+  background-position: -75px;
+}
+
+.mytheme .dijitCheckBoxCheckedDisabled {
+  /* disabled but checked */
+  background-position: -60px;
+}
+
+.mytheme .dijitCheckBoxHover {
+  /* hovering over an unchecked enabled checkbox */
+  background-position: -45px;
+}
+
+.mytheme .dijitCheckBoxCheckedHover {
+  /* hovering over an checked enabled checkbox */
+  background-position: -30px;
+}
+
+/* RadioButton
+ * 
+ * Styling RadioButton mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitRadio|.dijitRadioIcon - for border, padding, width|height and background image
+ * 
+ * 2. RadioButton within ToggleButton
+ * 		.dijitToggleButton|.dijitToggleButtonChecked .* - for background image
+ * 
+ * 3. Checked state
+ * 		.dijitRadioChecked - for checked background-color|image
+ * 		.dijitToggleButtonChecked - for border, background-color|image, display and width|height
+ * 
+ * 4. Hover state
+ * 		.dijitRadioHover|.dijitRadioCheckedHover - for background image
+ * 
+ * 5. Disabled state
+ * 		.dijitRadioDisabled|.dijitRadioCheckedDisabled - for background image
+ */
+.mytheme .dijitToggleButton .dijitRadio,
+.mytheme .dijitToggleButton .dijitRadioIcon {
+  background-image: url("images/checkboxRadioButtonStates.png");
+}
+
+.dj_ie6 .mytheme .dijitToggleButton .dijitRadio,
+.dj_ie6 .mytheme .dijitToggleButton .dijitRadioIcon {
+  background-image: url("images/checkboxAndRadioButtons_IE6.png");
+}
+
+.mytheme .dijitRadio,
+.mytheme .dijitRadioIcon {
+  /* inside a toggle button */
+  background-image: url("images/checkboxRadioButtonStates.png");
+  /* checkbox sprite image */
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  margin: 0 2px 0 0;
+  padding: 0;
+}
+
+.dj_ie6 .mytheme .dijitRadio,
+.dj_ie6 .mytheme .dijitRadioIcon {
+  /* inside a toggle button */
+  background-image: url("images/checkboxAndRadioButtons_IE6.png");
+  /* checkbox sprite image */
+}
+
+.mytheme .dijitRadio {
+  /* unselected */
+  background-position: -105px;
+}
+
+.mytheme .dijitToggleButton .dijitRadioIcon {
+  /* unselected */
+  background-position: -107px;
+}
+
+.mytheme .dijitRadioDisabled {
+  /* unselected and disabled */
+  background-position: -165px;
+}
+
+.mytheme .dijitRadioHover {
+  /* hovering over an unselected enabled radio button */
+  background-position: -135px;
+}
+
+.mytheme .dijitRadioChecked {
+  background-position: -90px;
+}
+
+.mytheme .dijitToggleButtonChecked .dijitRadioIcon {
+  background-position: -92px;
+}
+
+.mytheme .dijitRadioCheckedHover {
+  background-position: -120px;
+}
+
+.mytheme .dijitRadioCheckedDisabled {
+  /* selected but disabled */
+  background-position: -150px;
+}
+
+/* Slider 
+ * 
+ * Styling Slider mainly includes styling the Slider progress bar (dijitSliderProgressBar)
+ * 
+ * Slider progress bar:
+ * 1. Slider progress bar (default styling): 
+ * 		.dijitSliderProgressBarH - progress bar at the middle of horizontal slider
+ * 		.dijitSliderLeftBumper - bar at the left of horizontal slider
+ * 		.dijitSliderRightBumper - bar at the right of horizontal slider
+ * 		.dijitSliderProgressBarV - progress bar at the middle of vertical slider
+ * 		.dijitSliderTopBumper - bar at the top of vertical slider
+ * 		.dijitSliderBottomtBumper - bar at the bottom of vertical slider
+ * 
+ * 2. hovered Slider progress bar (ie, mouse hover on progress bar)
+ * 		.dijitSliderHover .dijitSliderProgressBarH(horizontal) - hovered bar style: background, border
+ * 
+ * 3. focused Slider progress bar (ie, mouse focused on progress bar)
+ * 		.dijitSliderFocused .dijitSliderProgressBarH(horizontal) - focus bar style: background, border
+ * 
+ * 4. disabled/read-only Slider progress bar 
+ * 		.dijitSliderDisabled .dijitSliderProgressBarH(horizontal) - bar styles when slider is disabled
+ * 
+ * 
+ * Slider Thumbs:
+ * 1. Slider Thumbs (default styling): 
+ * 		.dijitSliderImageHandleH / .dijitSliderImageHandleV - styles for the controller on the progress bar
+ * 
+ * 2. hovered Slider Thumbs (ie, mouse hover on slider thumbs)
+ * 		.dijitSliderHover .dijitSliderImageHandleH - hovered controller style
+ * 
+ * 3. focused Slider progress bar (ie, mouse focused on slider thumbs)
+ * 		.dijitSliderFocused .dijitSliderImageHandleV - focused controller style
+ * 
+ * 
+ * Slider Increment/Decrement Buttons:
+ * 1. Slider Increment/Decrement Buttons (default styling): 
+ * 		.dijitSliderDecrementIconH - decrement icon which lies at the left of horizontal slider
+ * 		.dijitSliderIncrementIconH - increment icon which lies at the right of horizontal slider
+ * 		.dijitSliderDecrementIconV - decrement icon which lies at the bottom of vertical slider
+ * 		.dijitSliderIncrementIconV - increment icon which lies at the top of vertical slider
+ * 
+ * 2. hovered Slider Increment/Decrement Buttons (mouse hover on the icons)
+ * 		.dijitSliderHover .dijitSliderDecrementIconH - for background, border
+ * 
+ * 3. active Slider Increment/Decrement Buttons (mouse down on the icons)
+ * 		.dijitSliderActive .dijitSliderIncrementIconV - for background, border
+ * 
+ * 4. disabled/read-only Slider Increment/Decrement Buttons
+ * 		.dijitSliderDisabled .dijitSliderDecrementIconH - styles for the icons in disabled slider
+ * 		.dijitSliderReadOnly .dijitSliderIncrementIconV - styles for the icons in read-only slider
+ */
+.mytheme .dijitSliderBar {
+  border-style: solid;
+  outline: 1px;
+}
+
+.mytheme .dijitSliderFocused .dijitSliderBar {
+  border-color: #759dc0;
+}
+
+.mytheme .dijitSliderHover .dijitSliderBar {
+  border-color: #759dc0;
+}
+
+.mytheme .dijitSliderDisabled .dijitSliderBar {
+  background-image: none;
+  border-color: lightgrey;
+}
+
+.mytheme .dijitRuleLabelsContainer {
+  color: black;
+}
+
+/* Horizontal Slider */
+.mytheme .dijitRuleLabelsContainerH {
+  padding: 2px 0;
+}
+
+.mytheme .dijitSlider .dijitSliderProgressBarH,
+.mytheme .dijitSlider .dijitSliderLeftBumper {
+  border-color: #b5bcc7;
+  background-color: #cfe5fa;
+  background-image: -moz-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0) 2px);
+  background-image: -webkit-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0) 2px);
+  background-image: -o-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0) 2px);
+  background-image: -ms-linear-gradient(top, white 0px, white 1px, rgba(255, 255, 255, 0) 2px);
+}
+
+.mytheme .dijitSlider .dijitSliderRemainingBarH,
+.mytheme .dijitSlider .dijitSliderRightBumper {
+  border-color: #b5bcc7;
+  background-color: white;
+}
+
+.mytheme .dijitSliderRightBumper {
+  border-right: solid 1px #b5bcc7;
+}
+
+.mytheme .dijitSliderLeftBumper {
+  border-left: solid 1px #b5bcc7;
+}
+
+.mytheme .dijitSliderHover .dijitSliderProgressBarH,
+.mytheme .dijitSliderHover .dijitSliderLeftBumper {
+  background-color: #abd6ff;
+  border-color: #759dc0;
+}
+
+.mytheme .dijitSliderHover .dijitSliderRemainingBarH,
+.mytheme .dijitSliderHover .dijitSliderRightBumper {
+  background-color: white;
+  border-color: #759dc0;
+}
+
+.mytheme .dijitSliderFocused .dijitSliderProgressBarH,
+.mytheme .dijitSliderFocused .dijitSliderLeftBumper {
+  background-color: #abd6ff;
+  border-color: #759dc0;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.mytheme .dijitSliderFocused .dijitSliderRemainingBarH,
+.mytheme .dijitSliderFocused .dijitSliderRightBumper {
+  background-color: white;
+  border-color: #759dc0;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.mytheme .dijitSliderDisabled .dijitSliderProgressBarH,
+.mytheme .dijitSliderDisabled .dijitSliderLeftBumper {
+  background-color: lightgrey;
+  /* left side of slider, fill matches border */
+  background-image: none;
+}
+
+.mytheme .dijitSliderDisabled .dijitSliderRemainingBarH,
+.mytheme .dijitSliderDisabled .dijitSliderRightBumper {
+  background-color: #efefef;
+}
+
+/* Vertical Slider */
+.mytheme .dijitRuleLabelsContainerV {
+  padding: 0 2px;
+}
+
+.mytheme .dijitSlider .dijitSliderProgressBarV,
+.mytheme .dijitSlider .dijitSliderBottomBumper {
+  border-color: #b5bcc7;
+  background-color: #cfe5fa;
+  background-image: -moz-linear-gradient(left, white 0px, rgba(255, 255, 255, 0) 1px);
+  background-image: -webkit-linear-gradient(left, white 0px, rgba(255, 255, 255, 0) 1px);
+  background-image: -o-linear-gradient(left, white 0px, rgba(255, 255, 255, 0) 1px);
+  background-image: -ms-linear-gradient(left, white 0px, rgba(255, 255, 255, 0) 1px);
+}
+
+.mytheme .dijitSlider .dijitSliderRemainingBarV,
+.mytheme .dijitSlider .dijitSliderTopBumper {
+  border-color: #b5bcc7;
+  background-color: white;
+}
+
+.mytheme .dijitSliderBottomBumper {
+  border-bottom: solid 1px #b5bcc7;
+}
+
+.mytheme .dijitSliderTopBumper {
+  border-top: solid 1px #b5bcc7;
+}
+
+.mytheme .dijitSliderHover .dijitSliderProgressBarV,
+.mytheme .dijitSliderHover .dijitSliderBottomBumper {
+  background-color: #abd6ff;
+  border-color: #759dc0;
+}
+
+.mytheme .dijitSliderHover .dijitSliderRemainingBarV,
+.mytheme .dijitSliderHover .dijitSliderTopBumper {
+  background-color: white;
+  border-color: #759dc0;
+}
+
+.mytheme .dijitSliderFocused .dijitSliderProgressBarV,
+.mytheme .dijitSliderFocused .dijitSliderBottomBumper {
+  background-color: #abd6ff;
+  border-color: #759dc0;
+  -webkit-box-shadow: inset 1px 0px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 1px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.mytheme .dijitSliderFocused .dijitSliderRemainingBarV,
+.mytheme .dijitSliderFocused .dijitSliderTopBumper {
+  background-color: white;
+  border-color: #759dc0;
+  -webkit-box-shadow: inset 1px 0px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 1px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.mytheme .dijitSliderDisabled .dijitSliderProgressBarV,
+.mytheme .dijitSliderDisabled .dijitSliderBottomBumper {
+  background-color: lightgrey;
+  /* bottom side of slider, fill matches border */
+}
+
+.mytheme .dijitSliderDisabled .dijitSliderRemainingBarV,
+.mytheme .dijitSliderDisabled .dijitSliderTopBumper {
+  background-color: #efefef;
+}
+
+/* ------- Thumbs ------- */
+.mytheme .dijitSliderImageHandleH {
+  border: 0;
+  width: 18px;
+  height: 16px;
+  background-image: url("images/sliderThumbs.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.mytheme .dijitSliderHover .dijitSliderImageHandleH {
+  background-position: -18px 0;
+}
+
+.mytheme .dijitSliderFocused .dijitSliderImageHandleH {
+  background-position: -36px 0;
+}
+
+.mytheme .dijitSliderProgressBarH .dijitSliderThumbHover {
+  background-position: -36px 0;
+}
+
+.mytheme .dijitSliderProgressBarH .dijitSliderThumbActive {
+  background-position: -36px 0;
+}
+
+.mytheme .dijitSliderReadOnly .dijitSliderImageHandleH,
+.mytheme .dijitSliderDisabled .dijitSliderImageHandleH {
+  background-position: -54px 0;
+}
+
+.mytheme .dijitSliderImageHandleV {
+  border: 0;
+  width: 18px;
+  height: 16px;
+  background-image: url("images/sliderThumbs.png");
+  background-repeat: no-repeat;
+  background-position: -289px 0;
+}
+
+.mytheme .dijitSliderHover .dijitSliderImageHandleV {
+  background-position: -307px 0;
+}
+
+.mytheme .dijitSliderFocused .dijitSliderImageHandleV {
+  background-position: -325px 0;
+}
+
+.mytheme .dijitSliderProgressBarV .dijitSliderThumbHover {
+  background-position: -325px 0;
+}
+
+.mytheme .dijitSliderProgressBarV .dijitSliderThumbActive {
+  background-position: -325px 0;
+}
+
+.mytheme .dijitSliderReadOnly .dijitSliderImageHandleV,
+.mytheme .dijitSliderDisabled .dijitSliderImageHandleV {
+  background-position: -343px 0;
+}
+
+/* ---- Increment/Decrement Buttons ---- */
+.mytheme .dijitSliderButtonContainerH {
+  padding: 1px 3px 1px 2px;
+}
+
+.mytheme .dijitSliderButtonContainerV {
+  padding: 3px 1px 2px 1px;
+}
+
+.mytheme .dijitSliderDecrementIconH,
+.mytheme .dijitSliderIncrementIconH,
+.mytheme .dijitSliderDecrementIconV,
+.mytheme .dijitSliderIncrementIconV {
+  background-image: url("images/commonFormArrows.png");
+  background-repeat: no-repeat;
+  background-color: #efefef;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border: solid 1px #b5bcc7;
+  font-size: 1px;
+}
+
+.mytheme .dijitSliderDecrementIconH,
+.mytheme .dijitSliderIncrementIconH {
+  height: 12px;
+  width: 9px;
+}
+
+.mytheme .dijitSliderDecrementIconV,
+.mytheme .dijitSliderIncrementIconV {
+  height: 9px;
+  width: 12px;
+}
+
+.mytheme .dijitSliderActive .dijitSliderDecrementIconH,
+.mytheme .dijitSliderActive .dijitSliderIncrementIconH,
+.mytheme .dijitSliderActive .dijitSliderDecrementIconV,
+.mytheme .dijitSliderActive .dijitSliderIncrementIconV,
+.mytheme .dijitSliderHover .dijitSliderDecrementIconH,
+.mytheme .dijitSliderHover .dijitSliderIncrementIconH,
+.mytheme .dijitSliderHover .dijitSliderDecrementIconV,
+.mytheme .dijitSliderHover .dijitSliderIncrementIconV {
+  /* dijitSliderActive should be treated as dijitSliderHover since "clicking the slider" has no meaning */
+  border: solid 1px #759dc0;
+  background-color: white;
+}
+
+.mytheme .dijitSliderDecrementIconH {
+  background-position: -357px 50%;
+}
+
+.mytheme .dijitSliderActive .dijitSliderDecrementIconH
+.mytheme .dijitSliderHover .dijitSliderDecrementIconH {
+  background-position: -393px 50%;
+}
+
+.mytheme .dijitSliderIncrementIconH {
+  background-position: -251px 50%;
+}
+
+.mytheme .dijitSliderActive .dijitSliderIncrementIconH
+.mytheme .dijitSliderHover .dijitSliderIncrementIconH {
+  background-position: -283px 50%;
+}
+
+.mytheme .dijitSliderDecrementIconV {
+  background-position: -38px 50%;
+}
+
+.mytheme .dijitSliderActive .dijitSliderDecrementIconV
+.mytheme .dijitSliderHover .dijitSliderDecrementIconV {
+  background-position: -73px 50%;
+}
+
+.mytheme .dijitSliderIncrementIconV {
+  background-position: -143px 49%;
+}
+
+.mytheme .dijitSliderActive .dijitSliderIncrementIconV
+.mytheme .dijitSliderHover .dijitSliderIncrementIconV {
+  background-position: -178px 49%;
+}
+
+.mytheme .dijitSliderButtonContainerV .dijitSliderDecrementButtonHover,
+.mytheme .dijitSliderButtonContainerH .dijitSliderDecrementButtonHover,
+.mytheme .dijitSliderButtonContainerV .dijitSliderIncrementButtonHover,
+.mytheme .dijitSliderButtonContainerH .dijitSliderIncrementButtonHover {
+  background-color: #cfe5fa;
+}
+
+.mytheme .dijitSliderButtonContainerV .dijitSliderDecrementButtonActive,
+.mytheme .dijitSliderButtonContainerH .dijitSliderDecrementButtonActive,
+.mytheme .dijitSliderButtonContainerV .dijitSliderIncrementButtonActive,
+.mytheme .dijitSliderButtonContainerH .dijitSliderIncrementButtonActive {
+  background-color: #abd6ff;
+  border-color: #759dc0;
+}
+
+.mytheme .dijitSliderButtonInner {
+  visibility: hidden;
+}
+
+.mytheme .dijitSliderDisabled .dijitSliderBar {
+  border-color: lightgrey;
+}
+
+.mytheme .dijitSliderReadOnly *, .mytheme .dijitSliderDisabled * {
+  border-color: lightgrey;
+  color: #818181;
+}
+
+.mytheme .dijitSliderReadOnly .dijitSliderDecrementIconH,
+.mytheme .dijitSliderDisabled .dijitSliderDecrementIconH {
+  background-position: -321px 50%;
+  background-color: #efefef;
+}
+
+.mytheme .dijitSliderReadOnly .dijitSliderIncrementIconH,
+.mytheme .dijitSliderDisabled .dijitSliderIncrementIconH {
+  background-position: -215px 50%;
+  background-color: #efefef;
+}
+
+.mytheme .dijitSliderReadOnly .dijitSliderDecrementIconV,
+.mytheme .dijitSliderDisabled .dijitSliderDecrementIconV {
+  background-position: -3px 49%;
+  background-color: #efefef;
+}
+
+.mytheme .dijitSliderReadOnly .dijitSliderIncrementIconV,
+.mytheme .dijitSliderDisabled .dijitSliderIncrementIconV {
+  background-position: -107px 49%;
+  background-color: #efefef;
+}
+
+/* Select
+ * 
+ * Styling Select mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitSelect - for border, background-color
+ * 		.dijitButtonContents - for border
+ *
+ * 2. Arrow
+ * 		.dijitArrowButton - for border, padding and background-color|image
+ * 		.dijitArrowButtonInner - for border, background-color|image, display and width|height
+ * 
+ * 3. Menu
+ * 		.dijitSelectMenu .* - for border, padding
+ * 
+ * 4. Various states
+ * 		.dijitSelectHover|.dijitSelectFocused|.dijitSelectDisabled .* - for border, padding and background-color|image 
+ */
+/* normal status */
+.mytheme .dijitSelect .dijitArrowButtonContainer {
+  border: 1px solid white;
+}
+
+.mytheme .dijitSelect .dijitArrowButton {
+  padding: 0;
+  background-color: #efefef;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+
+.mytheme .dijitSelect .dijitArrowButton .dijitArrowButtonInner {
+  height: 16px;
+}
+
+/* hover status */
+.mytheme .dijitSelectHover {
+  background-color: #e5f2fe;
+  background-image: -moz-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -webkit-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -o-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -ms-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-repeat: repeat-x;
+}
+
+.mytheme .dijitSelectFocused,
+.mytheme .dijitSelectHover {
+  border-color: #759dc0;
+}
+
+.mytheme .dijitSelectHover .dijitArrowButton {
+  background-color: #abd6ff;
+}
+
+.mytheme .dijitSelectHover .dijitArrowButton .dijitArrowButtonInner {
+  background-position: -70px 53%;
+}
+
+/* focused status */
+.mytheme .dijitSelectFocused .dijitArrowButton {
+  background-color: #7dbefa;
+  background-image: url("images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+
+.mytheme .dijitSelectFocused .dijitArrowButton {
+  border: none;
+  padding: 1px;
+}
+
+.mytheme .dijitSelectFocused .dijitArrowButton .dijitArrowButtonInner {
+  background-position: -70px 53%;
+}
+
+/* disable status */
+.mytheme .dijitSelectDisabled {
+  border-color: lightgrey;
+  background-color: #efefef;
+  background-image: none;
+  color: #818181;
+}
+
+.mytheme .dijitSelectDisabled .dijitArrowButton .dijitArrowButtonInner {
+  background-position: 0 53%;
+}
+
+/* Dropdown menu style for select */
+.mytheme .dijitSelectMenu td.dijitMenuItemIconCell,
+.mytheme .dijitSelectMenu td.dijitMenuArrowCell {
+  /* so that arrow and icon cells from MenuItem are not displayed */
+  display: none;
+}
+
+.mytheme .dijitSelectMenu td.dijitMenuItemLabel {
+  /* line up menu text with text in select box (in LTR and RTL modes) */
+  padding: 2px;
+}
+
+.mytheme .dijitSelectMenu .dijitMenuSeparatorTop {
+  border-bottom: 1px solid #759dc0;
+}
+
+/* NumberSpinner - namespace "dijitSpinner"
+ * 
+ * Styling NumberSpinner mainly includes:
+ * 
+ * 1. Arrows
+ * 		Outer containers: .dijitSpinnerButtonContainer|.dijitSpinnerButtonInner  - for border, padding and position
+ * 		Arrows: .dijitArrowButton|.dijitUpArrowButton.|dijitDownArrowButton
+ * 		Inner container: .dijitArrowButtonInner - for border, padding, width|height and background image
+ * 
+ * 2. Hover state
+ * 		.dijitUpArrowButtonHover|.dijitDownArrowButtonHover .*  - for background color|image
+ * 
+ * 3. Active state
+ * 		.dijitUpArrowButtonActive|.dijitDownArrowButtonActive .*  - for border, padding, margin and background color|image
+ * 
+ * 4. Focused state
+ * 		.dijitSpinnerFocused .* - for background color|image
+ * 
+ * 5. Disabled state
+ * 		.dijitSpinnerDisabled .* - for background color|image
+ */
+.mytheme .dijitSpinnerButtonContainer {
+  overflow: hidden;
+  position: relative;
+  width: auto;
+  padding: 0 2px;
+}
+
+.mytheme .dijitSpinnerButtonContainer .dijitSpinnerButtonInner {
+  border-width: 1px 0;
+  /* reserve space to match the claro combobox button border with border and not padding to make IE happier */
+  border-style: solid none;
+}
+
+/* button */
+.mytheme .dijitSpinner .dijitArrowButton {
+  width: auto;
+  background-color: #efefef;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  overflow: hidden;
+}
+
+.dj_iequirks .mytheme .dijitSpinner .dijitArrowButton {
+  overflow: visible;
+  /* 0 height w/o this */
+}
+
+.mytheme .dijitSpinner .dijitSpinnerButtonInner {
+  width: 15px;
+}
+
+/* up & down button icons */
+.mytheme .dijitSpinner .dijitArrowButtonInner {
+  border: solid 1px white;
+  border-bottom-width: 0;
+  /* 2 top borders = 1 top+bottom border in ComboBox */
+  background-image: url("images/commonFormArrows.png");
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 15px;
+  padding-left: 1px;
+  padding-right: 1px;
+  /* for up arrow */
+  background-position: -139px center;
+  /* override button.css (TODO: move to Common.css since ComboBox needs this too) */
+  display: block;
+  margin: -1px 0 -1px 0;
+  /* compensate for inner border */
+}
+
+.dj_iequirks .mytheme .dijitSpinner .dijitArrowButtonInner,
+.dj_ie6 .mytheme .dijitSpinner .dijitArrowButtonInner,
+.dj_ie7 .mytheme .dijitSpinner .dijitArrowButtonInner,
+.dj_ie8 .mytheme .dijitSpinner .dijitArrowButtonInner {
+  margin-top: 0;
+  /* since its bottom aligned */
+}
+
+.dj_iequirks .mytheme .dijitSpinner .dijitArrowButtonInner {
+  width: 19px;
+}
+
+.mytheme .dijitSpinner .dijitDownArrowButton .dijitArrowButtonInner {
+  background-position: -34px;
+}
+
+.mytheme .dijitSpinner .dijitArrowButtonInner .dijitInputField {
+  padding: 0;
+}
+
+/** hover & focused status **/
+.mytheme .dijitUpArrowButtonActive,
+.mytheme .dijitDownArrowButtonActive {
+  background-color: #abd6ff;
+}
+
+.mytheme .dijitSpinner .dijitUpArrowButtonHover,
+.mytheme .dijitSpinner .dijitDownArrowButtonHover,
+.mytheme .dijitSpinnerFocused .dijitArrowButton {
+  background-color: #abd6ff;
+}
+
+.mytheme .dijitSpinner .dijitUpArrowButtonHover .dijitArrowButtonInner {
+  background-position: -174px;
+}
+
+.mytheme .dijitSpinner .dijitDownArrowButtonHover .dijitArrowButtonInner {
+  background-position: -69px;
+}
+
+.mytheme .dijitSpinnerFocused {
+  background-color: white;
+  background-image: none;
+}
+
+/* mouse down status */
+.mytheme .dijitSpinner .dijitDownArrowButtonActive,
+.mytheme .dijitSpinner .dijitUpArrowButtonActive {
+  background-color: #7dbefa;
+  background-image: url("images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+
+.mytheme .dijitSpinner .dijitUpArrowButtonActive .dijitArrowButtonInner,
+.mytheme .dijitSpinner .dijitDownArrowButtonActive .dijitArrowButtonInner {
+  /* hide inner border while button is depressed */
+  border: 0;
+  padding: 1px;
+  margin-right: 2px;
+  margin-bottom: 1px;
+}
+
+.mytheme .dijitSpinner .dijitUpArrowButtonActive .dijitArrowButtonInner {
+  background-position: -173px;
+}
+
+.mytheme .dijitSpinner .dijitDownArrowButtonActive .dijitArrowButtonInner {
+  background-position: -68px;
+}
+
+/* disabled */
+.mytheme .dijitSpinnerDisabled .dijitArrowButtonInner {
+  background-color: #efefef;
+}
+
+.mytheme .dijitSpinnerDisabled .dijitUpArrowButton .dijitArrowButtonInner {
+  background-position: -104px;
+}
+
+.mytheme .dijitSpinnerDisabled .dijitDownArrowButton .dijitArrowButtonInner {
+  background-position: 1px;
+}
+
+/** hacks for browsers **/
+/* for IE 7, when div is enlarged, 
+ * should be no empty space between dijitInputLayoutContainer and dijitSpinner*/
+.dj_ie7 .mytheme .dijitSpinner {
+  overflow: visible;
+}
+
+/* Tree 
+ * 
+ * Styling Tree mostly means styling the TreeRow (dijitTreeRow)
+ * There are 4 basic states to style:
+ * 
+ * Tree Row:
+ * 1. tree row (default styling): 
+ * 		.dijitTreeRow - styles for each row of the tree
+ *
+ * 2. hovered tree row (mouse hover on a tree row)
+ * 		.dijitTreeRowHover - styles when mouse over on one row
+ * 
+ * 3. active tree row (mouse down on a tree row)
+ * 		.dijitTreeRowActive - styles when mouse down on one row
+ * 
+ * 4. selected tree row
+ * 		dijitTreeRowSelected - style when the row has been selected
+ * 
+ * Tree Expando:
+ * 	    dijitTreeExpando - the expando at the left of the text of each tree row
+ * 
+ * Drag and Drop on TreeNodes: (insert line on dijitTreeContent node so it'll aligned w/ target element)
+ * 		.dijitTreeNode .dojoDndItemBefore/.dojoDndItemAfter - use border style simulate a separate line
+ */
+.mytheme .dijitTreeNode {
+  zoom: 1;
+  /* force layout on IE (TODO: may not be needed anymore) */
+}
+
+.mytheme .dijitTreeIsRoot {
+  background-image: none;
+}
+
+/* Styling for basic tree node (unhovered, unselected)
+ * Also use this styling when dropping between items on the tree (in other words, don't
+ * use hover effect)
+ */
+.mytheme .dijitTreeRow,
+.mytheme .dijitTreeNode .dojoDndItemBefore,
+.mytheme .dijitTreeNode .dojoDndItemAfter {
+  /* so insert line shows up on IE when dropping after a target element */
+  padding: 4px 0 2px 0;
+  background-color: none;
+  background-color: transparent;
+  background-color: rgba(171, 214, 255, 0);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  border: solid 0 transparent;
+  color: black;
+  -webkit-transition-property: background-color, border-color;
+  -moz-transition-property: background-color, border-color;
+  transition-property: background-color, border-color;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.mytheme .dijitTreeRowSelected {
+  background-color: #cfe5fa;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  padding: 3px 0 1px;
+  border-color: #759dc0;
+  border-width: 1px 0;
+  color: black;
+}
+
+.mytheme .dijitTreeRowHover {
+  background-color: #abd6ff;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  padding: 3px 0 1px;
+  border-color: #759dc0;
+  border-width: 1px 0;
+  color: black;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+}
+
+.mytheme .dijitTreeRowActive {
+  background-color: #7dbdfa;
+  background-image: url("images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  padding: 3px 0 1px;
+  border-color: #759dc0;
+  border-width: 1px 0;
+  color: black;
+}
+
+.mytheme .dijitTreeRowFocused {
+  background-repeat: repeat;
+}
+
+/* expando (open/closed) icon */
+.mytheme .dijitTreeExpando {
+  background-image: url("images/treeExpandImages.png");
+  width: 16px;
+  height: 16px;
+  background-position: -35px 0;
+  /* for dijitTreeExpandoOpened */
+}
+
+.dj_ie6 .mytheme .dijitTreeExpando {
+  background-image: url("images/treeExpandImages8bit.png");
+}
+
+.mytheme .dijitTreeRowHover .dijitTreeExpandoOpened {
+  background-position: -53px 0;
+}
+
+.mytheme .dijitTreeExpandoClosed {
+  background-position: 1px 0;
+}
+
+.mytheme .dijitTreeRowHover .dijitTreeExpandoClosed {
+  background-position: -17px 0;
+}
+
+.mytheme .dijitTreeExpandoLeaf,
+.dj_ie6 .mytheme .dijitTreeExpandoLeaf {
+  background-image: none;
+}
+
+.mytheme .dijitTreeExpandoLoading {
+  background-image: url("images/loadingAnimation.gif");
+}
+
+/* Drag and Drop on TreeNodes
+ * Put insert line on dijitTreeContent node so it's aligned w/
+ * (ie, indented equally with) target element, even
+ * though dijitTreeRowNode is the actual "drag object"
+ */
+.mytheme .dijitTreeNode .dojoDndItemBefore .dijitTreeContent {
+  border-top: 2px solid #759dc0;
+}
+
+.mytheme .dijitTreeNode .dojoDndItemAfter .dijitTreeContent {
+  border-bottom: 2px solid #759dc0;
+}
+
+/* ProgressBar
+ * 
+ * Styling of the ProgressBar consists of the following:
+ * 
+ * 1. the base progress bar
+ *		.dijitProgressBar -	sets margins for the progress bar
+ *
+ * 2. the empty bar
+ *		.dijitProgressBarEmpty  - sets background img and color for bar or parts of bar that are not finished yet
+ *		Also sets border color for whole bar
+ *
+ * 3. tile mode
+ * 		.dijitProgressBarTile
+ *		inner container for finished portion when in 'tile' (image) mode 
+ * 	
+ * 4. full bar mode
+ * 		.dijitProgressBarFull
+ *		adds border to right side of the filled portion of bar
+ *
+ * 5. text for label of  bar
+ *		.dijitProgressBarLabel - sets text color, which must contrast with both the "Empty" and "Full" parts. 
+ * 	
+ * 6. indeterminate mode
+ *		.dijitProgressBarIndeterminate .dijitProgressBarTile 
+ * 		sets animated gif for the progress bar in 'indeterminate' mode
+ */
+.mytheme .dijitProgressBar {
+  margin: 2px 0 2px 0;
+}
+
+.mytheme .dijitProgressBarEmpty {
+  /* outer container and background of the bar that's not finished yet*/
+  background-color: white;
+  border-color: #759dc0;
+}
+
+.mytheme .dijitProgressBarTile {
+  /* inner container for finished portion when in 'tile' (image) mode */
+  background-color: #abd6ff;
+  background-image: url("images/progressBarFull.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.93) 0px, rgba(255, 255, 255, 0.41) 1px, rgba(255, 255, 255, 0.7) 2px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.93) 0px, rgba(255, 255, 255, 0.41) 1px, rgba(255, 255, 255, 0.7) 2px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.93) 0px, rgba(255, 255, 255, 0.41) 1px, rgba(255, 255, 255, 0.7) 2px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.93) 0px, rgba(255, 255, 255, 0.41) 1px, rgba(255, 255, 255, 0.7) 2px, rgba(255, 255, 255, 0) 100%);
+  background-attachment: scroll;
+}
+
+.dj_ie6 .mytheme .dijitProgressBarTile {
+  background-image: none;
+}
+
+.mytheme .dijitProgressBarFull {
+  border-right: 1px solid #759dc0;
+  -webkit-transition-property: width;
+  -moz-transition-property: width;
+  transition-property: width;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+}
+
+.mytheme .dijitProgressBarLabel {
+  /* Set to a color that contrasts with both the "Empty" and "Full" parts. */
+  color: black;
+}
+
+.mytheme .dijitProgressBarIndeterminate .dijitProgressBarTile {
+  /* use an animated gif for the progress bar in 'indeterminate' mode;
+  	background-color won't appear unless user has turned off background images */
+  background: #efefef url("images/progressBarAnim.gif") repeat-x top;
+}
+
+/* TitlePane 
+ * 
+ * Styling TitlePane means styling the TitlePane title and its content container  (dijitTitlePane)
+ * 
+ * TitlePane title:
+ * 1. TitlePane title (default styling): 
+ * 		.dijitTitlePaneTitle - TitlePane's title div style: background-color, border
+ *
+ * 2. hovered TitlePane title (ie, mouse hover on a title bar)
+ * 		.dijitTitlePaneTitleHover - styles when mouse hover on the title div
+ * 
+ * 3. active TitlePane title (ie, mouse down on a title bar)
+ * 		.dijitTitlePaneTitleActive - styles when mouse down on the title div
+ * 
+ * 
+ * TitlePane Content Container:
+ * 1. outer/inner container: 
+ * 		.dijitTitlePaneContentOuter / dijitTitlePaneContentInner - styles for the content outer div
+ */
+.mytheme .dijitTitlePaneTitle {
+  background-color: #efefef;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  border: 1px solid #b5bcc7;
+  padding: 0 7px 3px 7px;
+  min-height: 17px;
+}
+
+.mytheme .dijitTitlePaneTitleHover {
+  background-color: #abd6ff;
+  border-color: #759dc0;
+}
+
+.mytheme .dijitTitlePaneTitleActive {
+  background-color: #7dbdfa;
+  border-color: #759dc0;
+  background-image: url("images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+
+.mytheme .dijitTitlePaneTitleFocus {
+  margin-top: 3px;
+  padding-bottom: 2px;
+}
+
+.mytheme .dijitTitlePane .dijitArrowNode {
+  background-image: url("images/spriteArrows.png");
+  background-repeat: no-repeat;
+  height: 8px;
+  width: 7px;
+}
+
+.mytheme .dijitTitlePane .dijitOpen .dijitArrowNode {
+  background-position: 0 0;
+}
+
+.mytheme .dijitTitlePane .dijitClosed .dijitArrowNode {
+  background-position: -14px 0;
+}
+
+.mytheme .dijitTitlePane .dijitTitlePaneTextNode {
+  color: black;
+}
+
+.mytheme .dijitTitlePaneContentOuter {
+  background: white;
+  border: 1px solid #b5bcc7;
+  border-top: none;
+}
+
+.mytheme .dijitTitlePaneContentInner {
+  padding: 10px;
+}
+
+.mytheme .dijitTitlePaneTextNode {
+  margin-left: 4px;
+  margin-right: 4px;
+  vertical-align: text-top;
+}
+
+/* Calendar
+ * 
+ * Styling Calendar mainly includes:
+ * 
+ * 1. Calendar container
+ * 		.dijitCalendar - main container
+ * 		.dijitCalendarHover / .dijitCalendarActive - states e.g. hover,active
+ * 
+ * 2. Month
+ * 		.dijitCalendarMonthContainer
+ * 		.dijitCalendarMonthLabel
+ *      .dijitCalendarDecrease / .dijitCalendarDecrease - icons for switching to previous/next month
+ *      .dijitCalendarArrowActive .dijitCalendarDecrease - states e.g. hover,active
+ * 
+ * 3. Date
+ * 		.dijitCalendarDayLabelTemplate - week day column header e.g. S M T W T F S
+ * 		.dijitCalendarDateTemplate - date label wrapper
+ * 		.dijitCalendarPreviousMonth .dijitCalendarDateLabel - special labels for previous or next month
+ *      .dijitCalendarSelectedDate .dijitCalendarDateLabel - styles for selected date
+ * 		.dijitCalendarDisabledDate .dijitCalendarDateLabel - styles for disabled date
+ * 		.dijitCalendarActiveDate .dijitCalendarDateLabel - states e.g. hover,active
+ * 
+ * 4. Year
+ * 		.dijitCalendarYearContainer
+ * 		.dijitCalendarYearLabel
+ * 		.dijitCalendarPreviousYear /.dijitCalendarNextYear
+ *      .dijitCalendarNextYearHover / .dijitCalendarPreviousYearHover - states e.g. hover,active
+ *      
+ * 5. Dropdown Month Menu
+ * 		.dijitCalendarMonthMenu - menu container     
+ * 		.dijitCalendarMonthMenu .dijitCalendarMonthLabel - month label in menu item
+ * 		.dijitCalendarMonthMenu .dijitCalendarMonthLabelHover - menu item hover state
+ */
+.mytheme .dijitCalendar {
+  border: solid 1px #b5bcc7;
+  border-collapse: separate;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #cfe5fa;
+  background-image: url("images/calendar.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(white 0px, rgba(255, 255, 255, 0.4) 2px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(white 0px, rgba(255, 255, 255, 0.4) 2px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(white 0px, rgba(255, 255, 255, 0.4) 2px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(white 0px, rgba(255, 255, 255, 0.4) 2px, rgba(255, 255, 255, 0) 100%);
+  text-align: center;
+  padding: 6px 5px 3px 5px;
+}
+
+.dj_ie6 .mytheme .dijitCalendar {
+  background-image: none;
+}
+
+.mytheme .dijitCalendar img {
+  border: none;
+}
+
+.mytheme .dijitCalendarHover,
+.mytheme .dijitCalendar:hover,
+.mytheme .dijitCalendarActive {
+  /* treat dijitCalendarActive like hover since there's
+   * no concept of clicking a Calendar as a whole (although you can click things inside the calendar)
+   */
+  background-color: #abd6ff;
+  border: solid 1px #759dc0;
+}
+
+.mytheme .dijitCalendarMonthContainer th {
+  text-align: center;
+  padding-bottom: 4px;
+  vertical-align: middle;
+}
+
+.mytheme .dijitCalendarMonthLabel {
+  color: black;
+  font-size: 1.091em;
+  padding: 0 4px;
+}
+
+/* next/previous month arrows */
+.mytheme .dijitCalendarIncrementControl {
+  width: 18px;
+  height: 16px;
+  background-image: url("images/calendarArrows.png");
+  background-repeat: no-repeat;
+}
+
+.dj_ie6 .mytheme .dijitCalendarIncrementControl {
+  background-image: url("images/calendarArrows8bit.png");
+}
+
+.mytheme .dijitCalendarIncrease {
+  background-position: -18px 0;
+}
+
+.mytheme .dijitCalendarArrowHover .dijitCalendarDecrease,
+.mytheme .dijitCalendarArrow:hover .dijitCalendarDecrease {
+  background-position: -36px 0;
+}
+
+.mytheme .dijitCalendarArrowHover .dijitCalendarIncrease,
+.mytheme .dijitCalendarArrow:hover .dijitCalendarIncrease {
+  background-position: -55px 0;
+}
+
+.mytheme .dijitCalendarArrowActive .dijitCalendarDecrease,
+.mytheme .dijitCalendarArrow:active .dijitCalendarDecrease {
+  background-position: -72px 0;
+}
+
+.mytheme .dijitCalendarArrowActive .dijitCalendarIncrease,
+.mytheme .dijitCalendarArrow:active .dijitCalendarIncrease {
+  background-position: -91px 0;
+}
+
+.mytheme .dijitA11ySideArrow {
+  /* text +/- labels instead of arrow icons, for high contrast mode */
+  display: none;
+}
+
+.mytheme .dijitCalendarDayLabelTemplate {
+  padding-bottom: 0;
+  text-align: center;
+  border-bottom: 1px solid #b5bcc7;
+  padding: 0 3px 2px;
+}
+
+.mytheme .dijitCalendarDayLabel {
+  padding: 0 4px 0 4px;
+  font-weight: bold;
+  font-size: 0.909em;
+  text-align: center;
+  color: black;
+}
+
+.mytheme .dijitCalendarDateTemplate {
+  text-align: center;
+  background-color: white;
+  border-bottom: 1px solid lightgrey;
+  padding-top: 0;
+  font-size: 0.909em;
+  font-family: Arial;
+  font-weight: bold;
+  letter-spacing: .05em;
+  text-align: center;
+  color: black;
+}
+
+.dj_ie6 .mytheme .dijitCalendarDateTemplate {
+  background-image: none;
+}
+
+.mytheme .dijitCalendarPreviousMonth,
+.mytheme .dijitCalendarNextMonth {
+  background-color: #e5f2fe;
+  background-image: none;
+  border-bottom: solid 1px lightgrey;
+  /* todo: redundant with above .dijitCalendarDateTemplate rule */
+}
+
+.mytheme .dijitCalendarDateTemplate .dijitCalendarDateLabel {
+  text-decoration: none;
+  display: block;
+  padding: 3px 5px 3px 4px;
+  border: solid 1px white;
+  /* intentionally matches background-color, no visible border until hover/selection */
+  background-color: rgba(171, 212, 251, 0);
+  /* transparent causes black-flash animation problem on webkit */
+  -webkit-transition-property: background-color, border;
+  -moz-transition-property: background-color, border;
+  transition-property: background-color, border;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+}
+
+.mytheme .dijitCalendarPreviousMonth .dijitCalendarDateLabel,
+.mytheme .dijitCalendarNextMonth .dijitCalendarDateLabel {
+  color: #759dc0;
+  border-color: #e5f2fe;
+  /* intentionally matches background-color, no visible border until hover/selection */
+}
+
+.mytheme .dijitCalendarYearContainer {
+  vertical-align: middle;
+}
+
+.mytheme .dijitCalendarYearControl {
+  padding: 1px 2px 2px 2px;
+}
+
+.mytheme .dijitCalendarYearLabel {
+  padding: 2px 0 0 0;
+  margin: 0;
+  font-size: 1.17em;
+}
+
+.mytheme .dijitCalendarYearLabel span {
+  /* trying to center next/current/previous year vertically, doesn't work on IE6/7 though */
+  vertical-align: middle;
+}
+
+.mytheme .dijitCalendarSelectedYear {
+  padding: 0 3px;
+}
+
+.mytheme .dijitCalendarNextYear,
+.mytheme .dijitCalendarPreviousYear {
+  padding: 1px 6px 1px 6px;
+  font-size: 0.909em;
+}
+
+.mytheme .dijitCalendarSelectedYear {
+  font-size: 1.091em;
+  color: black;
+}
+
+/* End Normal Calendar Style */
+/* Hovered Calendar Style */
+.mytheme .dijitCalendarHoveredDate .dijitCalendarDateLabel,
+.mytheme .dijitCalendarEnabledDate:hover .dijitCalendarDateLabel {
+  background-color: #abd6ff;
+  border: solid 1px #759dc0;
+  color: black;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.mytheme .dijitCalendarNextYearHover,
+.mytheme .dijitCalendarNextYear:hover,
+.mytheme .dijitCalendarPreviousYearHover,
+.mytheme .dijitCalendarPreviousYear:hover {
+  color: black;
+  border: solid 1px white;
+  padding: 0 5px 0 5px;
+  /* reduced by 1 to make room for border */
+  background-color: #e5f2fe;
+}
+
+/* End Hovered Calendar Style */
+/* Active Calendar Style */
+.mytheme .dijitCalendarNextYearActive,
+.mytheme .dijitCalendarNextYear:active
+.mytheme .dijitCalendarPreviousYearActive,
+.mytheme .dijitCalendarPreviousYear:active {
+  border: solid 1px #759dc0;
+  padding: 0 5px 0 5px;
+  /* reduced by 1 to make room for border */
+  background-color: #7dbdfa;
+}
+
+.mytheme .dijitCalendarActiveDate .dijitCalendarDateLabel,
+.mytheme .dijitCalendarEnabledDate:active .dijitCalendarDateLabel {
+  background-color: #7dbdfa;
+  border: solid 1px white;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+}
+
+.dj_ie6 .mytheme .dijitCalendarActiveDate .dijitCalendarDateLabel {
+  background-image: none;
+}
+
+/* End Active Calendar Style */
+/* Selected Calendar Style */
+.mytheme .dijitCalendarSelectedDate .dijitCalendarDateLabel {
+  color: black;
+  background-color: #abd6ff;
+  border-color: #759dc0;
+}
+
+/* End Selected Calendar Style */
+/* Disabled Calendar Style*/
+.mytheme .dijitCalendarDisabledDate .dijitCalendarDateLabel {
+  color: #818181;
+  text-decoration: line-through;
+}
+
+/* End Disabled Calendar Style */
+/* Styling for month DropDownButton */
+.mytheme .dijitCalendar .dijitDropDownButton {
+  margin: 0;
+}
+
+.mytheme .dijitCalendar .dijitButtonText {
+  padding: 1px 0 3px;
+  margin-right: -4px;
+}
+
+.mytheme .dijitCalendar .dijitDropDownButton .dijitButtonNode {
+  padding: 0 3px 0 2px;
+  border: solid 1px #b5bcc7;
+  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  background-color: transparent;
+  background-image: none;
+}
+
+.mytheme .dijitCalendar .dijitDropDownButtonHover .dijitButtonNode,
+.mytheme .dijitCalendar .dijitDropDownButton:hover .dijitButtonNode {
+  background-color: #e5f2fe;
+  border: solid 1px white;
+}
+
+/* Styling for month drop down list */
+.mytheme .dijitCalendarMonthMenu {
+  border-color: #759dc0;
+  background-color: white;
+  text-align: center;
+  background-image: none;
+}
+
+.mytheme .dijitCalendarMonthMenu .dijitCalendarMonthLabel {
+  border-top: solid 1px white;
+  /* intentionally invisible until hover */
+  border-bottom: solid 1px white;
+  padding: 2px 0;
+}
+
+.mytheme .dijitCalendarMonthMenu .dijitCalendarMonthLabelHover,
+.mytheme .dijitCalendarMonthMenu .dijitCalendarMonthLabel:hover {
+  border-color: #759dc0;
+  border-width: 1px 0;
+  background-color: #abd6ff;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+  filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=" white ", endColorstr=" #abd6ff ")";
+}
+
+/* Time Picker 
+ *
+ * Styling the Time Picker consists of the following: 
+ *
+ * 1. minor time values
+ * 		.dijitTimePickerTick - set text color, size, background color of minor values
+ * 		.dijitTimePickerTickHover - set hover style of minor time values
+ * 		dijitTimePickerTickSelected - set selected style of minor time values
+ *
+ * 2. major time values - 1:00, 2:00, times on the hour 
+ * 		set text color, size, background color, left/right margins for "zoom" affect
+ * 		.dijitTimePickerMarkerHover - to set hover style of major time values
+ * 		.dijitTimePickerMarkerSelected - set selected style of major time values
+ * 
+ * 3. up and down arrow buttons
+ * 		.dijitTimePicker .dijitButtonNode - background-color, border
+ * 		.dijitTimePicker .dijitUpArrowHover, .dijitTimePicker .dijitDownArrowHover - set background-color for hover state
+ *
+ *	Other classes provide the fundamental structure of the TimePicker and should not be modified. 
+ */
+/* override Button.css */
+.mytheme .dijitTimePicker .dijitButtonNode {
+  padding: 0 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.mytheme .dijitTimePicker {
+  border: 1px #b5bcc7 solid;
+  border-top: none;
+  border-bottom: none;
+  background-color: #fff;
+  /* TODO: useless?   Appears to be overridden by settings on individual elements */
+}
+
+.mytheme .dijitTimePickerItem {
+  /* dijitTimePickerItem refers to both Tick's (minor values like 2:15, 2:30, 2:45) and Marker's (major values like 2PM, 3PM) */
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  border-top: solid 1px #b5bcc7;
+  border-bottom: solid 1px #b5bcc7;
+  margin-right: -1px;
+  margin-left: -1px;
+  margin-top: -1px;
+}
+
+.mytheme .dijitTimePickerTick {
+  /* minor value */
+  color: #818181;
+  background-color: #efefef;
+  font-size: 0.818em;
+}
+
+.mytheme .dijitTimePickerMarker {
+  /* major value - 1:00, 2:00, times on the hour */
+  background-color: #e5f2fe;
+  font-size: 1em;
+  white-space: nowrap;
+}
+
+.mytheme .dijitTimePickerTickHover,
+.mytheme .dijitTimePickerMarkerHover,
+.mytheme .dijitTimePickerMarkerSelected,
+.mytheme .dijitTimePickerTickSelected {
+  background-color: #7dbdfa;
+  border: solid 1px #b5bcc7;
+  margin-left: -7px;
+  margin-right: -7px;
+  color: black;
+}
+
+.mytheme .dijitTimePickerMarkerSelected,
+.mytheme .dijitTimePickerTickSelected {
+  font-size: 1em;
+}
+
+.dj_ie .mytheme .dijitTimePickerTickHover,
+.dj_ie .mytheme .dijitTimePickerMarkerHover,
+.dj_ie .mytheme .dijitTimePickerMarkerSelected,
+.dj_ie .mytheme .dijitTimePickerTickSelected {
+  width: 114%;
+}
+
+.dj_ie6 .mytheme .dijitTimePickerTickHover,
+.dj_ie6 .mytheme .dijitTimePickerMarkerHover,
+.dj_ie6 .mytheme .dijitTimePickerMarkerSelected,
+.dj_ie6 .mytheme .dijitTimePickerTickSelected {
+  position: relative;
+  /* creates widening of element */
+  zoom: 1;
+  /* creates widening of element */
+}
+
+.mytheme .dijitTimePickerTick .dijitTimePickerItemInner {
+  padding: 1px;
+  margin: 0;
+}
+
+.mytheme .dijitTimePicker .dijitButtonNode {
+  border-left: none;
+  border-right: none;
+  border-color: #b5bcc7;
+  background-color: #efefef;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+
+.mytheme .dijitTimePicker .dijitArrowButtonInner {
+  height: 100%;
+  /* hack claro.button.css */
+  background-image: url("images/commonFormArrows.png");
+  background-repeat: no-repeat;
+  background-position: -140px 45%;
+}
+
+.mytheme .dijitTimePicker .dijitDownArrowButton .dijitArrowButtonInner {
+  background-position: -35px 45%;
+}
+
+/* hover */
+.mytheme .dijitTimePicker .dijitUpArrowHover,
+.mytheme .dijitTimePicker .dijitDownArrowHover {
+  background-color: #abd6ff;
+}
+
+.mytheme .dijitTimePicker .dijitUpArrowHover .dijitArrowButtonInner {
+  background-position: -175px 45%;
+}
+
+.mytheme .dijitTimePicker .dijitDownArrowHover .dijitArrowButtonInner {
+  background-position: -70px 45%;
+}
+
+/* Toolbar 
+ * 
+ * Styling Toolbar means styling the toolbar container and the widget inside toolbar  (dijitToolbar)
+ * 
+ * 1. toolbar (default styling): 
+ * 		.dijitToolbar - styles for outer container
+ *
+ * 2. widget inside toolbar
+ * 		.dijitToolbar .dijitButtonNode   - Button widget
+ * 					  .dijitComboButton  - ComboButton widget
+ * 					  .dijitDropDownButton  - DropDownButton widget
+ * 					  .dijitToggleButton  - ToggleButton widget
+ * 		
+ * 3. hovered widget inside toolbar (ie, mouse hover on the widget inside)
+ * 			.dijitToolbar .dijitButtonNodeHover  - styles for hovered Button widget
+ * 
+ * 4. actived widget inside toolbar (ie, mouse down on the widget inside)
+ * 			.dijitToolbar .dijitButtonNodeActive  - mouse down on Button widget
+ */
+.mytheme .dijitToolbar {
+  border-bottom: 1px solid #b5bcc7;
+  background-color: #efefef;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  padding: 2px 0 2px 4px;
+  zoom: 1;
+}
+
+.mytheme .dijitToolbar label {
+  padding: 0 3px 0 6px;
+}
+
+/** override claro/form/Button.css, and also ComboBox down arrow **/
+.mytheme .dijitToolbar .dijitButton .dijitButtonNode,
+.mytheme .dijitToolbar .dijitDropDownButton .dijitButtonNode,
+.mytheme .dijitToolbar .dijitComboButton .dijitButtonNode,
+.mytheme .dijitToolbar .dijitToggleButton .dijitButtonNode,
+.mytheme .dijitToolbar .dijitComboBox .dijitButtonNode {
+  border-width: 0;
+  /* on hover/active, border-->1px, padding-->1px */
+  padding: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition-property: background-color;
+  -moz-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.3s, 0.35s;
+  -moz-transition-duration: 0.3s, 0.35s;
+  transition-duration: 0.3s, 0.35s;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  background-color: rgba(171, 214, 255, 0);
+}
+
+.dj_ie .mytheme .dijitToolbar .dijitButton .dijitButtonNode,
+.dj_ie .mytheme .dijitToolbar .dijitDropDownButton .dijitButtonNode,
+.dj_ie .mytheme .dijitToolbar .dijitComboButton .dijitButtonNode,
+.dj_ie .mytheme .dijitToolbar .dijitToggleButton .dijitButtonNode,
+.dj_ie .mytheme .dijitToolbar .dijitComboBox .dijitButtonNode {
+  background-color: transparent;
+  /* for IE, which doesn't understand rgba(...) */
+}
+
+/* hover status */
+.dj_ie .mytheme .dijitToolbar .dijitButtonHover .dijitButtonNode,
+.dj_ie .mytheme .dijitToolbar .dijitDropDownButtonHover .dijitButtonNode,
+.dj_ie .mytheme .dijitToolbar .dijitComboButton .dijitButtonNodeHover,
+.dj_ie .mytheme .dijitToolbar .dijitComboButton .dijitDownArrowButtonHover,
+.dj_ie .mytheme .dijitToolbar .dijitToggleButtonHover .dijitButtonNode {
+  /* button should still turn blue on hover, so need to override .dj_ie rules above */
+  background-color: #abd6ff;
+}
+
+/* active status */
+.dj_ie .mytheme .dijitToolbar .dijitButtonActive .dijitButtonNode,
+.dj_ie .mytheme .dijitToolbar .dijitDropDownButtonActive .dijitButtonNode,
+.dj_ie .mytheme .dijitToolbar .dijitComboButtonActive .dijitButtonNode,
+.dj_ie .mytheme .dijitToolbar .dijitToggleButtonActive .dijitButtonNode {
+  /* button should still turn blue on press, so need to override .dj_ie rules above */
+  background-color: #abd6ff;
+}
+
+.mytheme .dijitToolbar .dijitComboButton .dijitStretch {
+  /* no rounded border on side adjacent to arrow */
+  -moz-border-radius: 2px 0 0 2px;
+  border-radius: 2px 0 0 2px;
+}
+
+.mytheme .dijitToolbar .dijitComboButton .dijitArrowButton {
+  /* no rounded border on side adjacent to button */
+  -moz-border-radius: 0 2px 2px 0;
+  border-radius: 0 2px 2px 0;
+}
+
+.mytheme .dijitToolbar .dijitComboBox .dijitButtonNode {
+  padding: 0;
+}
+
+/* hover status */
+.mytheme .dijitToolbar .dijitButtonHover .dijitButtonNode,
+.mytheme .dijitToolbar .dijitDropDownButtonHover .dijitButtonNode,
+.mytheme .dijitToolbar .dijitToggleButtonHover .dijitButtonNode,
+.mytheme .dijitToolbar .dijitComboButtonHover .dijitButtonNode {
+  border-width: 1px;
+  background-color: #abd6ff;
+  padding: 1px;
+}
+
+.mytheme .dijitToolbar .dijitComboButtonHover .dijitButtonNode,
+.mytheme .dijitToolbar .dijitComboButtonHover .dijitDownArrowButton {
+  background-color: #f3ffff;
+}
+
+.mytheme .dijitToolbar .dijitComboButtonHover .dijitButtonNodeHover,
+.mytheme .dijitToolbar .dijitComboButtonHover .dijitDownArrowButtonHover {
+  background-color: #abd6ff;
+}
+
+/* active status */
+.mytheme .dijitToolbar .dijitButtonActive .dijitButtonNode,
+.mytheme .dijitToolbar .dijitDropDownButtonActive .dijitButtonNode,
+.mytheme .dijitToolbar .dijitToggleButtonActive .dijitButtonNode {
+  border-width: 1px;
+  background-color: #7dbdfa;
+  background-image: url("images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  padding: 1px;
+}
+
+.mytheme .dijitToolbar .dijitComboButtonActive {
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-width: 1px;
+  padding: 0;
+}
+
+.mytheme .dijitToolbar .dijitComboButtonActive .dijitButtonNode,
+.mytheme .dijitToolbar .dijitComboButtonActive .dijitDownArrowButton {
+  background-color: #f3ffff;
+  padding: 2px;
+}
+
+.mytheme .dijitToolbar .dijitComboButtonActive .dijitButtonNodeActive {
+  background-color: #7dbdfa;
+  background-image: url("images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+
+.mytheme .dijitToolbar .dijitComboButtonActive .dijitDownArrowButtonActive {
+  background-color: #7dbdfa;
+  background-image: url("images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+
+/* Avoid double border between button and arrow */
+.mytheme .dijitToolbar .dijitComboButtonHover .dijitDownArrowButton,
+.mytheme .dijitToolbar .dijitComboButtonActive .dijitDownArrowButton {
+  border-left-width: 0;
+}
+
+.mytheme .dijitToolbar .dijitComboButtonHover .dijitDownArrowButton {
+  padding-left: 2px;
+  /* since there's no left border, don't reduce from 2px --> 1px */
+}
+
+/* toggle button checked status */
+.mytheme .dijitToolbar .dijitToggleButtonChecked .dijitButtonNode {
+  margin: 0;
+  /* remove margin and add a border */
+  border-width: 1px;
+  border-style: solid;
+  background-image: none;
+  border-color: #759dc0;
+  background-color: white;
+  padding: 1px;
+}
+
+.mytheme .dijitToolbarSeparator {
+  /* separator icon in the editor sprite */
+  background: url("../../icons/images/editorIconsEnabled.png");
+}
+
+/* Toolbar inside of disabled Editor */
+.mytheme .dijitDisabled .dijitToolbar {
+  background: none;
+  background-color: #efefef;
+  border-bottom: 1px solid lightgrey;
+}
+
+.mytheme .dijitToolbar .dijitComboBoxDisabled .dijitArrowButtonInner {
+  background-position: 0 50%;
+}
+
+/* Dialog 
+ * 
+ * Styling Dialog includes two sections: Dialog and Tooltip & TooltipDialog
+ * 
+ * Dialog:
+ * 1. Dialog (default styling): 
+ * 		.dijitDialog - styles for dialog's bounding box
+ *
+ * 2. Dialog title 
+ * 		.dijitDialogTitleBar - styles for the title container at the top of dialog
+ * 		.dijitDialogTitle - the text container in dialog title
+ * 
+ * 3. Dialog content 
+ * 		.dijitDialogPaneContent - main container for content area and action bar
+ * 		.dijitDialogPaneContentArea - styles for content container
+ * 
+ * 4. Dialog action bar 
+ * 		.dijitDialogPaneActionBar - styles for action buttons lie at the bottom of dialog pane content
+ * 
+ * 5. Dialog underlay 
+ * 		.dijitDialogUnderlay - div under the dialog which used for separate dialog and page content
+ * 
+ * 
+ * Tooltip & TooltipDialog:
+ * 1. tooltip content container: 
+ * 		.dijitTooltipContainer - tooltip content container
+ *
+ * 2. tooltip connector: 
+ * 		.dijitTooltipConnector - tooltip anchor includes 4 direction(up, down, left, right)
+ */
+.mytheme .dijitDialog {
+  border: 1px solid #759dc0;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.mytheme .dijitDialogPaneContent {
+  background: white repeat-x top left;
+  border-top: 1px solid #759dc0;
+  padding: 10px 8px;
+  position: relative;
+}
+
+.mytheme .dijitDialogPaneContentArea {
+  /* trick to get action bar (gray bar at bottom with OK/cancel buttons) to span from
+   * left to right but still indent dialog content
+   */
+  margin: -10px -8px;
+  padding: 10px 8px;
+}
+
+.mytheme .dijitDialogPaneActionBar {
+  /* gray bar at bottom of dialog with OK/Cancel buttons */
+  background-color: #efefef;
+  padding: 3px 5px 2px 7px;
+  text-align: right;
+  border-top: 1px solid lightgrey;
+  margin: 10px -8px -10px;
+}
+
+.mytheme .dijitTooltipDialog .dijitDialogPaneActionBar {
+  -webkit-border-bottom-right-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  margin: 10px -10px -8px;
+}
+
+.mytheme .dijitDialogPaneActionBar .dijitButton {
+  float: none;
+}
+
+.mytheme .dijitDialogTitleBar {
+  /* outer container for the titlebar of the dialog */
+  border: 1px solid white;
+  border-top: none;
+  background-color: #abd6ff;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+  padding: 5px 7px 4px 7px;
+}
+
+.mytheme .dijitDialogTitle {
+  /* typography and styling of the dialog title */
+  padding: 0 1px;
+  font-size: 1.091em;
+  color: black;
+}
+
+.mytheme .dijitDialogCloseIcon {
+  /* the default close icon for the dialog */
+  background: url("images/dialogCloseIcon.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 5px;
+  height: 15px;
+  width: 21px;
+}
+
+.dj_ie6 .mytheme .dijitDialogCloseIcon {
+  background-image: url("images/dialogCloseIcon8bit.png");
+}
+
+.mytheme .dijitDialogCloseIconHover {
+  background-position: -21px;
+}
+
+.mytheme .dijitDialogCloseIconActive {
+  background-position: -42px;
+}
+
+/* Tooltip and TooltipDialog */
+.mytheme .dijitTooltip,
+.mytheme .dijitTooltipDialog {
+  /* the outermost dom node, holding the connector and container */
+  background: transparent;
+  /* make the area on the sides of the arrow transparent */
+}
+
+.dijitTooltipBelow {
+  /* leave room for arrow above content */
+  padding-top: 13px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.dijitTooltipAbove {
+  /* leave room for arrow below content */
+  padding-bottom: 13px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.mytheme .dijitTooltipContainer {
+  /* the part with the text */
+  background-color: white;
+  background-image: -moz-linear-gradient(bottom, rgba(207, 229, 250, 0.9) 0px, white 10px);
+  background-image: -webkit-linear-gradient(bottom, rgba(207, 229, 250, 0.9) 0px, white 10px);
+  background-image: -o-linear-gradient(bottom, rgba(207, 229, 250, 0.9) 0px, white 10px);
+  background-image: -ms-linear-gradient(bottom, rgba(207, 229, 250, 0.9) 0px, white 10px);
+  background-position: bottom;
+  border: 1px solid #759dc0;
+  padding: 6px 8px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  font-size: 1em;
+  color: black;
+}
+
+.mytheme .dijitTooltipConnector {
+  /* the arrow piece */
+  border: 0;
+  z-index: 2;
+  background-image: url("images/tooltip.png");
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 14px;
+}
+
+.dj_ie6 .mytheme .dijitTooltipConnector {
+  background-image: url("images/tooltip8bit.png");
+}
+
+.mytheme .dijitTooltipABRight .dijitTooltipConnector {
+  /* above or below tooltip, but the arrow appears on the right,
+  	and the right edges of target and tooltip are aligned rather than the left */
+  left: auto !important;
+  right: 3px;
+}
+
+.mytheme .dijitTooltipBelow .dijitTooltipConnector {
+  /* the arrow piece for tooltips below an element */
+  top: 0;
+  left: 3px;
+  background-position: -31px 0;
+  width: 16px;
+  height: 14px;
+}
+
+.mytheme .dijitTooltipAbove .dijitTooltipConnector {
+  /* the arrow piece for tooltips above an element */
+  bottom: 0;
+  left: 3px;
+  background-position: -15px 0;
+  width: 16px;
+  height: 14px;
+}
+
+.dj_ie7 .mytheme .dijitTooltipAbove .dijitTooltipConnector,
+.dj_ie6 .mytheme .dijitTooltipAbove .dijitTooltipConnector {
+  bottom: -1px;
+}
+
+.mytheme .dijitTooltipLeft {
+  padding-right: 14px;
+}
+
+.mytheme .dijitTooltipLeft .dijitTooltipConnector {
+  /* the arrow piece for tooltips to the left of an element, bottom borders aligned */
+  right: 0;
+  background-position: 0 0;
+  width: 16px;
+  height: 14px;
+}
+
+.mytheme .dijitTooltipRight {
+  padding-left: 14px;
+}
+
+.mytheme .dijitTooltipRight .dijitTooltipConnector {
+  /* the arrow piece for tooltips to the right of an element, bottom borders aligned */
+  left: 0;
+  background-position: -48px 0;
+  width: 16px;
+  height: 14px;
+}
+
+.mytheme .dijitDialogUnderlay {
+  background: white;
+}
+
+/* Menu 
+
+There are three areas of styling for the Menu:  
+ 
+ 1. The menu 
+ 	There are three types of menus:
+ 	i) Context Menu
+ 	ii) Drop down Menu
+ 	iii) Navigation Menu
+ 	All three types of menus are affected by the .dijitMenu class in which you can set the background-color, padding and border
+ 	.dijitMenu affects the drop down menu in TimeTextBox, Calendar, ComboBox and FilteringSelect
+  .dijitMenuTable - for padding - also affects Select widget 	
+  	
+ 2. The menu bar
+ 	.dijitMenuBar - for border, margins, padding, background-color of the menu bar
+ 	.dijitMenuBar .dijitMenuItem - for padding, text color of menu items in the menu bar (overrides .dijitMenuItem) 
+ 	
+ 3. Menu items - items in the menu.  
+ 	.dijitMenuItem - for color
+ 	.dijitMenuItemHover, .dijitMenuItemSelected - for background-color, border, text color, padding of a menu item or menubar item that has been hovered over or selected	
+ 	.dijitMenuItemActive - for background-color of an active (mousedown) menu item
+	td.dijitMenuItemIconCell - for padding around a  menu item's icon
+	td.dijitMenuItemLabel - for padding around a menu item's label	
+	.dijitMenuSeparatorTop - for border, top border, of the separator
+	.dijitMenuSeparatorBottom - for bottom margin of the separator
+	
+	Styles specific to ComboBox and FilteringSelect widgets: 
+	.dijitComboBoxMenu .dijitMenuItem - for padding and border of a menu item in a ComboBox or FilteringSelect widget's menu
+	.dijitComboBoxMenu .dijitMenuItemSelected- for text color, background-color and border of a menu item in a ComboBox or FilteringSelect widget's menu
+
+*/
+.mytheme .dijitMenuBar {
+  border: 1px solid #b5bcc7;
+  margin: 0;
+  padding: 0;
+  background-color: #efefef;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+
+.mytheme .dijitMenu {
+  background-color: white;
+  border: 1px solid #759dc0;
+  /* so adjoining borders of MenuBar/ComboBox and Menu overlap, avoiding double border */
+  margin: -1px 0;
+}
+
+.dj_ie6 .mytheme .dijitMenu {
+  margin: 0;
+  /* above -1px makes top/bottom borders disappear on IE6 */
+}
+
+.mytheme .dijitMenuItem {
+  color: black;
+}
+
+.mytheme .dijitMenuBar .dijitMenuItem {
+  padding: 6px 10px 7px;
+  margin: -1px;
+}
+
+.mytheme .dijitMenuBar .dijitMenuItemHover,
+.mytheme .dijitMenuBar .dijitMenuItemSelected {
+  border: solid 1px #759dc0;
+  padding: 5px 9px 6px;
+}
+
+/* this prevents jiggling upon hover of a menu item */
+.mytheme .dijitMenuTable {
+  border-collapse: separate;
+  border-spacing: 0 0;
+  padding: 0;
+}
+
+.mytheme .dijitMenuItem td {
+  padding: 1px;
+}
+
+/* hover over a MenuItem or MenuBarItem */
+.mytheme .dijitSelectMenu .dijitMenuItemHover td,
+.mytheme .dijitSelectMenu .dijitMenuItemSelected td,
+.mytheme .dijitMenuItemHover,
+.mytheme .dijitMenuItemSelected {
+  background-color: #abd6ff;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+
+.mytheme .dijitMenuItemActive {
+  background-image: url("images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+
+.dj_ie .mytheme .dijitMenuActive .dijitMenuItemHover,
+.dj_ie .mytheme .dijitMenuActive .dijitMenuItemSelected,
+.dj_ie .mytheme .dijitMenuPassive .dijitMenuItemHover,
+.dj_ie .mytheme .dijitMenuPassive .dijitMenuItemSelected {
+  padding-top: 6px;
+  padding-bottom: 5px;
+  margin-top: -3px;
+}
+
+.mytheme td.dijitMenuItemIconCell {
+  padding: 2px;
+  margin: 0 0 0 4px;
+}
+
+.mytheme td.dijitMenuItemLabel {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.mytheme .dijitMenuExpand {
+  width: 7px;
+  height: 7px;
+  background-image: url("images/spriteArrows.png");
+  background-position: -14px 0;
+  margin-right: 3px;
+}
+
+.mytheme .dijitMenuItemDisabled .dijitMenuItemIconCell {
+  opacity: 1;
+}
+
+.mytheme .dijitMenuSeparatorTop {
+  height: auto;
+  margin-top: 1px;
+  /* prevents spacing above/below separator */
+  border-bottom: 1px solid #b5bcc7;
+}
+
+.mytheme .dijitMenuSeparatorBottom {
+  height: auto;
+  margin-bottom: 1px;
+}
+
+/* the checked menu item */
+.mytheme .dijitCheckedMenuItemIconChar {
+  display: none;
+}
+
+.mytheme .dijitCheckedMenuItemIcon {
+  background-image: url("images/checkboxRadioButtonStates.png");
+  background-repeat: no-repeat;
+  background-position: -15px 50%;
+  width: 15px;
+  height: 16px;
+}
+
+.dj_ie6 .mytheme .dijitCheckedMenuItemIcon {
+  background-image: url("images/checkboxAndRadioButtons_IE6.png");
+}
+
+.mytheme .dijitCheckedMenuItemChecked .dijitCheckedMenuItemIcon {
+  background-position: 0 50%;
+}
+
+/*ComboBox Menu*/
+.mytheme .dijitComboBoxMenu {
+  margin-left: 0;
+  background-image: none;
+}
+
+.mytheme .dijitSelectMenu .dijitMenuItem td,
+.mytheme .dijitComboBoxMenu .dijitMenuItem {
+  padding: 2px;
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: white;
+}
+
+.mytheme .dijitSelectMenu .dijitMenuItemSelected td,
+.mytheme .dijitComboBoxMenu .dijitMenuItemSelected {
+  color: black;
+  border-color: #759dc0;
+  background-color: #abd6ff;
+}
+
+.mytheme .dijitSelectMenu .dijitMenuItemHover td,
+.mytheme .dijitComboBoxMenu .dijitMenuItemHover {
+  color: #000000;
+  border-color: #769dc0;
+  background-color: #abd6ff;
+}
+
+.mytheme .dijitComboBoxMenuActive .dijitMenuItemSelected {
+  background-color: #7dbdfa;
+  /* TODO: why is this a different color than normal .dijitMenuItemSelected? */
+}
+
+.mytheme .dijitMenuPreviousButton,
+.mytheme .dijitMenuNextButton {
+  font-style: italic;
+}
+
+/* Editor 
+ * 
+ * Styling Editor means styling the Editor inside iframe container (dijitEditorIFrameContainer)
+ * 
+ * 1. Editor iframe container (default styling): 
+ * 		.dijitEditorIFrameContainer - normal state styles: background-color, border, padding
+ *
+ * 2. hovered Editor iframe container (ie, mouse hover on editor)
+ * 		.dijitEditorHover .dijitEditorIFrameContainer/dijitEditorIFrame - styles when mouse hover on the container
+ * 
+ * 3. focused Editor iframe container (ie, mouse focus on the editor pane)
+ * 		.dijitEditorFocused .dijitEditorIFrameContainer/dijitEditorIFrame - styles when container focused
+ * 
+ * 3. disabled Editor iframe container 
+ * 		.dijitEditorDisabled - editor's inner iframe container disable status styles: background, border
+ */
+.mytheme .dijitEditorIFrameContainer {
+  padding: 3px 3px 1px 10px;
+}
+
+.mytheme .dijitEditorIFrame {
+  background-color: white;
+}
+
+.mytheme .dijitEditor {
+  border: 1px solid #b5bcc7;
+}
+
+.mytheme .dijitEditor .dijitEditorIFrameContainer {
+  background-color: white;
+  background-repeat: repeat-x;
+}
+
+.mytheme .dijitEditorHover .dijitEditorIFrameContainer,
+.mytheme .dijitEditorHover .dijitEditorIFrameContainer .dijitEditorIFrame {
+  background-color: #e5f2fe;
+}
+
+.mytheme .dijitEditorFocused .dijitEditorIFrameContainer,
+.mytheme .dijitEditorFocused .dijitEditorIFrameContainer .dijitEditorIFrame {
+  background-color: white;
+}
+
+.mytheme .dijitEditorHover .dijitEditorIFrameContainer,
+.mytheme .dijitEditorFocused .dijitEditorIFrameContainer {
+  background-image: -moz-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -webkit-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -o-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -ms-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+}
+
+/* Disabled */
+.mytheme .dijitEditorDisabled {
+  border: 1px solid lightgrey;
+  color: #818181;
+}
+
+.mytheme .dijitDisabled .dijitEditorIFrame,
+.mytheme .dijitDisabled .dijitEditorIFrameContainer,
+.mytheme .dijitDisabled .dijitEditorIFrameContainer .dijitEditorIFrame {
+  background-color: #efefef;
+  background-image: none;
+}
+
+/* ColorPalette
+ * 
+ * Styling of the ColorPalette consists of the following:
+ * 
+ * 1. the whole color palette
+ *		.dijitColorPalette - for outline, border, and background color of the whole color palette
+ *		Note: outline does not work for IE
+ *
+ * 2. the color swatch 
+ *		.dijitColorPalette .dijitPaletteImg
+ *		transparent (but clickable) <img> node inside of each <td>, overlaying the color swatch.
+ *		displays border around a color swatch
+ *
+ * 3. hovered swatch
+ * 		.dijitColorPalette .dijitPaletteCell:hover .dijitPaletteImg
+ *		the hovered state of the color swatch - adds border
+ * 	
+ * 4. active and selected swatch
+ * 		.dijitColorPalette .dijitPaletteCell:active .dijitPaletteImg
+ *		.dijitColorPalette .dijitPaletteCellSelected .dijitPaletteImg
+ *		adds border for active or selected state
+ */
+.mytheme .dijitColorPalette {
+  border: 1px solid #b5bcc7;
+  background: white;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.mytheme .dijitColorPalette .dijitPaletteImg {
+  /* transparent (but clickable) <img> node inside of each <td>, overlaying the color swatch.
+   * displays border around a color swatch
+   * overrides border color in dijit.css */
+  border: 1px solid lightgrey;
+}
+
+.mytheme .dijitColorPalette .dijitPaletteCell:hover .dijitPaletteImg {
+  border: 1px solid black;
+}
+
+.mytheme .dijitColorPalette .dijitPaletteCell:active .dijitPaletteImg,
+.mytheme .dijitColorPalette .dijitPaletteTable .dijitPaletteCellSelected .dijitPaletteImg {
+  border: 2px solid black;
+}
+
+/* InlineEditBox
+ * 
+ * Styling InlineEditBox mainly includes:
+ * 
+ * 1. Normal state
+ * 		.dijitInlineEditBoxDisplayMode  - for border
+ * 
+ * 2. Hover state
+ * 		.dijitInlineEditBoxDisplayModeHover - for border and background color
+ */
+.mytheme .dijitInlineEditBoxDisplayMode {
+  border: 1px solid transparent;
+}
+
+.mytheme .dijitInlineEditBoxDisplayModeHover {
+  background-color: #e5f2fe;
+  border: solid 1px #759dc0;
+}
+
+.dj_ie6 .mytheme .dijitInlineEditBoxDisplayMode {
+  border: none;
+}
+
+/* ===== Custom Styles ======================================================
+   Author: 
+   ========================================================================== */
